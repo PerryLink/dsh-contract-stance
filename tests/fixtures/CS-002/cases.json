@@ -1,0 +1,31 @@
+{
+  "ruleId": "CS-002",
+  "configure": {
+    "CS-002": {
+      "values": [
+        "坚持",
+        "可谈",
+        "接受",
+        "须删除"
+      ]
+    }
+  },
+  "pairs": [
+    {
+      "name": "expected-state",
+      "material": "CS-002-compliant.json",
+      "expect": {
+        "ruleId": "CS-002",
+        "count": 0
+      }
+    },
+    {
+      "name": "difference-present",
+      "material": "CS-002-unsafe.json",
+      "expect": {
+        "ruleId": "CS-002",
+        "count": 1
+      }
+    }
+  ]
+}

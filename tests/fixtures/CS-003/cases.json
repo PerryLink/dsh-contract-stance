@@ -1,0 +1,30 @@
+{
+  "ruleId": "CS-003",
+  "configure": {
+    "CS-003": {
+      "values": [
+        "高",
+        "中",
+        "低"
+      ]
+    }
+  },
+  "pairs": [
+    {
+      "name": "expected-state",
+      "material": "CS-003-compliant.json",
+      "expect": {
+        "ruleId": "CS-003",
+        "count": 0
+      }
+    },
+    {
+      "name": "difference-present",
+      "material": "CS-003-unsafe.json",
+      "expect": {
+        "ruleId": "CS-003",
+        "count": 1
+      }
+    }
+  ]
+}

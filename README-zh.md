@@ -50,8 +50,7 @@ depend on the deal, the counterparty's leverage and your own risk appetite.**
 ## Install
 
 ```sh
-pnpm pack
-dsh plugin --profile <name> add ./*.tgz
+dsh plugin --profile <name> add dsh-contract-stance
 dsh --profile <name> --dump-config | grep 'dsh-contract-stance'
 ```
 

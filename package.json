@@ -1,6 +1,6 @@
 {
   "name": "dsh-contract-stance",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "description": "合同条款立场台账核对（按立场、风险等级与退让底线核对台账自洽，仅提示差异，不作出定性结论）",
   "type": "module",
   "main": "lib/index.mjs",

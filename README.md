@@ -70,13 +70,12 @@ per clause — applies a versioned rule pack, and returns a report.
 | Rule | Check | Severity | Basis kind |
 |---|---|---|---|
 | `CS-001` | every clause's text is recorded | warn | principle |
-| `CS-002` | the stance comes from your vocabulary (off by default) | info | local |
-| `CS-003` | the risk grade comes from your vocabulary (off by default) | info | local |
-| `CS-004` | a must-have clause records a fallback and an owner | warn | principle |
+| `CS-002` | the stance comes from your vocabulary (off by default) | info | principle |
+| `CS-003` | the risk grade comes from your vocabulary (off by default) | info | direct |
+| `CS-004` | a must-have clause records a fallback and an owner | warn | direct |
 | `CS-005` | clause numbers are unique | warn | principle |
-| `CS-006` | the register names the contract and your side | warn | principle |
+| `CS-006` | the register names the contract and your side | warn | direct |
 | `CS-007` | the clause text holds no unreplaced placeholder | warn | principle |
-
 ## Install
 
 ```sh

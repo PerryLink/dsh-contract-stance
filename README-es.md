@@ -1,4 +1,23 @@
-# dsh-contract-stance
+# dsh-contract-stance — Verificación de la integridad y la coherencia interna del registro de posturas sobre cláusulas contractuales
+
+`dsh-contract-stance` lee un registro de posturas sobre cláusulas —la cabecera del contrato más una fila por cláusula— y comprueba la integridad y la coherencia interna de ese registro: que se recoja el texto de cada cláusula, que su postura proceda de su propio vocabulario y que la calificación de riesgo también, que una cláusula irrenunciable registre tanto un límite de concesión como un responsable, que los números de cláusula sean únicos, que el registro declare el contrato y su propia parte y que no quede ningún marcador de plantilla sin sustituir en el texto de la cláusula.
+
+## Qué responde
+
+| Usted pregunta | Qué responde |
+|---|---|
+| Una fila tiene tema, pero la columna del texto de la cláusula está vacía. ¿Se informa de eso? | Sí. `CS-001` exige la columna `text` en todas las filas: sin el texto no se puede comprobar a qué redacción se refiere la postura. La regla solo comprueba que el texto esté recogido; no juzga si la cláusula debe aceptarse ni si entraña riesgo jurídico. |
+| La postura y la calificación de riesgo están rellenas, pero todas las filas vuelven como `skipped`. ¿Por qué? | Porque las dos listas de valores vienen vacías de fábrica. `CS-002` solo acepta una postura de la lista configurada para él, y `CS-003` hace lo mismo con la calificación de riesgo; sin lista configurada ninguna de las dos reglas puede ejecutarse, así que cada una se informa en `skipped` en lugar de pasar en silencio. `CS-002` solo comprueba que el valor esté en su lista, no que la postura sea adecuada; `CS-003` solo comprueba que esté en la lista, no cuán alto es el riesgo real de esa cláusula. |
+| Una cláusula está marcada como irrenunciable, pero nadie escribió hasta dónde se puede ceder ni quién decide. | `CS-004` lee la propia columna de irrenunciable del registro: cuando la fila lleva `是`, `Y`, `yes`, `true`, `必保` o `√` (valores fijados por `conditionValues`) exige que se rellenen las columnas `fallback` y `owner`. Solo comprueba que ambas estén rellenas, no si el límite de concesión es razonable; qué cláusulas son irrenunciables depende por completo del proyecto y la regla no lo decide. |
+| El mismo número de cláusula aparece en dos filas, una por borrador de negociación. ¿Es un hallazgo? | `CS-005` informa de un número de cláusula repetido, comparando sin tener en cuenta los espacios. Un número repetido impide señalar con precisión una sola cláusula. Que una cláusula aparezca una vez por borrador es una forma normal: distíngala en la columna de versión en lugar de reutilizar el número. Ninguna cláusula exige que los números sean únicos: la unicidad es lo que hace referenciable el registro. |
+| La cabecera no dice de qué contrato se trata ni cuál es nuestra parte. | `CS-006` exige que la cabecera del material declare `contractName` y `party`: sin esos dos datos la postura no puede rastrearse hasta una operación y una parte concretas. Si su formulario tiene una columna de versión para los borradores, añádala a los `fields` de esa regla. La regla solo comprueba que la cabecera declare los dos. |
+| El texto de la cláusula se copió tal cual de un modelo y todavía contiene 【】 o TBD. | `CS-007` informa del texto de la columna `text` que aún contiene alguno de sus términos de plantilla: `【`, `】`, `{{`, `}}`, `XXX`, `xxx`, `待填`, `待补充`, `TBD`, `todo`, `示例`, ajustables a su propia plantilla. Remitirse a un modelo está permitido; el peligro es que un marcador de plantilla se lea como redacción ya revisada. La regla solo busca esos términos en la columna de texto, no examina la cláusula. |
+
+## Normas que sigue
+
+| Documento | Número | Reglas que lo citan |
+|---|---|---|
+| 《中华人民共和国民法典》 | 现行版本与条号本次未核实 | CS-001, CS-002, CS-003, CS-004, CS-005, CS-006, CS-007 |
 
 **Boundary:** this plugin checks a **合同条款立场台账** for what a register can be held to — that each clause's
 text is recorded, that your stance comes from your vocabulary, that the risk grade does too, that a must-have

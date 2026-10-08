@@ -1,4 +1,23 @@
-# dsh-contract-stance
+# dsh-contract-stance — Contract clause stance register completeness and self-consistency check
+
+`dsh-contract-stance` reads one clause-stance register — the contract header plus one row per clause — and checks that register's own completeness and self-consistency: that each clause's text is recorded, that your stance comes from your own vocabulary, that the risk grade does too, that a must-have clause records both a fallback position and an owner, that clause numbers are unique, that the register names the contract and your side, and that no unreplaced placeholder survives in the clause text.
+
+## What it answers
+
+| You ask | What it answers |
+|---|---|
+| A clause row carries a topic, but the clause-text column is blank. Is that reported? | Yes. `CS-001` requires the `text` column on every row: without the wording, a stance cannot be checked against what it is a stance on. The rule checks only that the wording is recorded — it does not judge whether the clause should be accepted or whether it carries legal risk. |
+| The stance and the risk grade are both filled in, yet every row comes back as `skipped`. Why? | Both value lists ship empty. `CS-002` accepts a stance only from the list configured for it, and `CS-003` does the same for the risk grade; with no list configured neither rule can run, so each reports itself in `skipped` rather than passing quietly. `CS-002` checks only that the value is on your list, not that the stance is appropriate; `CS-003` checks only that the grade is on your list, not how high the actual risk of that clause is. |
+| A clause is marked must-have, but nobody wrote how far we can concede or who decides. | `CS-004` reads the register's own must-have column: for a row marked `是`, `Y`, `yes`, `true`, `必保` or `√` (the values set by `conditionValues`) it requires both the `fallback` and the `owner` column to be filled. It checks only that those two are filled, not whether the fallback is reasonable; which clauses count as must-have depends entirely on the project, and the rule never decides that. |
+| The same clause number appears on two rows, one per negotiating draft. Is that a finding? | `CS-005` reports a repeated clause number, comparing with whitespace ignored. A repeated number makes it impossible to point at one clause precisely. One clause appearing once per draft is a normal shape: distinguish it in the version column instead of reusing the number. No clause requires clause numbers to be unique — uniqueness is what makes the register referable. |
+| The header does not say which contract this is, nor which side we are. | `CS-006` requires the material's header to state `contractName` and `party`: without those two, a stance cannot be traced to a specific transaction and party. If your form carries a version column for negotiating drafts, add it to that rule's `fields`. The rule only checks that the header declares those two. |
+| The clause text was copied straight from a model form and still contains 【】 or TBD. | `CS-007` reports clause text that still holds any of its placeholder terms — `【`, `】`, `{{`, `}}`, `XXX`, `xxx`, `待填`, `待补充`, `TBD`, `todo`, `示例` — which can be adjusted to your own template. Referring to a model form is allowed; the danger is that a template placeholder is read as wording already reviewed. The rule only looks for those terms in the `text` column, not at the clause itself. |
+
+## Standards it follows
+
+| Document | Number | Cited by rules |
+|---|---|---|
+| 《中华人民共和国民法典》 | 现行版本与条号本次未核实 | CS-001, CS-002, CS-003, CS-004, CS-005, CS-006, CS-007 |
 
 **Boundary:** this plugin checks a **合同条款立场台账** for what a register can be held to — that each clause's
 text is recorded, that your stance comes from your vocabulary, that the risk grade does too, that a must-have

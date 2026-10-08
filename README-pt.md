@@ -1,4 +1,23 @@
-# dsh-contract-stance
+# dsh-contract-stance — Verificação da completude e da coerência interna do registo de posições sobre cláusulas contratuais
+
+`dsh-contract-stance` lê um registo de posições sobre cláusulas —o cabeçalho do contrato mais uma linha por cláusula— e verifica a completude e a coerência interna desse registo: se o texto de cada cláusula está registado, se a sua posição vem do seu próprio vocabulário e se a classificação de risco também, se uma cláusula irrenunciável regista tanto um limite de cedência como um responsável, se os números de cláusula são únicos, se o registo declara o contrato e a sua própria parte e se não resta nenhum marcador de modelo por substituir no texto da cláusula.
+
+## O que ele responde
+
+| Você pergunta | O que ele responde |
+|---|---|
+| Uma linha tem tema, mas a coluna do texto da cláusula está vazia. Isso é reportado? | Sim. `CS-001` exige a coluna `text` em todas as linhas: sem o texto não é possível verificar a que redação se refere a posição. A regra verifica apenas que o texto está registado; não julga se a cláusula deve ser aceite nem se envolve risco jurídico. |
+| A posição e a classificação de risco estão preenchidas, mas todas as linhas voltam como `skipped`. Porquê? | Porque as duas listas de valores vêm vazias de fábrica. `CS-002` só aceita uma posição da lista configurada para ele, e `CS-003` faz o mesmo com a classificação de risco; sem lista configurada nenhuma das regras consegue correr, por isso cada uma se reporta em `skipped` em vez de passar em silêncio. `CS-002` verifica apenas se o valor consta da sua lista, não se a posição é adequada; `CS-003` verifica apenas se consta da lista, não quão alto é o risco real dessa cláusula. |
+| Uma cláusula está marcada como irrenunciável, mas ninguém escreveu até onde se pode ceder nem quem decide. | `CS-004` lê a própria coluna de irrenunciável do registo: quando a linha traz `是`, `Y`, `yes`, `true`, `必保` ou `√` (valores definidos por `conditionValues`) exige que as colunas `fallback` e `owner` estejam preenchidas. Verifica apenas que ambas estão preenchidas, não se o limite de cedência é razoável; que cláusulas são irrenunciáveis depende inteiramente do projeto e a regra não o decide. |
+| O mesmo número de cláusula aparece em duas linhas, uma por minuta de negociação. É um achado? | `CS-005` reporta um número de cláusula repetido, comparando sem considerar os espaços. Um número repetido impede apontar com precisão uma única cláusula. Uma cláusula surgir uma vez por minuta é uma forma normal: distinga-a na coluna de versão em vez de reutilizar o número. Nenhuma cláusula exige que os números sejam únicos: a unicidade é o que torna o registo referenciável. |
+| O cabeçalho não diz de que contrato se trata nem qual é a nossa parte. | `CS-006` exige que o cabeçalho do material declare `contractName` e `party`: sem esses dois dados a posição não pode ser rastreada até uma operação e uma parte concretas. Se o seu formulário tiver uma coluna de versão para as minutas, acrescente-a aos `fields` dessa regra. A regra verifica apenas que o cabeçalho declara os dois. |
+| O texto da cláusula foi copiado tal e qual de um modelo e ainda contém 【】 ou TBD. | `CS-007` reporta o texto da coluna `text` que ainda contém algum dos seus termos de modelo: `【`, `】`, `{{`, `}}`, `XXX`, `xxx`, `待填`, `待补充`, `TBD`, `todo`, `示例`, ajustáveis ao seu próprio modelo. Recorrer a um modelo é permitido; o perigo é um marcador de modelo ser lido como redação já revista. A regra procura apenas esses termos na coluna de texto, não examina a cláusula. |
+
+## Normas que segue
+
+| Documento | Número | Regras que o citam |
+|---|---|---|
+| 《中华人民共和国民法典》 | 现行版本与条号本次未核实 | CS-001, CS-002, CS-003, CS-004, CS-005, CS-006, CS-007 |
 
 **Boundary:** this plugin checks a **合同条款立场台账** for what a register can be held to — that each clause's
 text is recorded, that your stance comes from your vocabulary, that the risk grade does too, that a must-have

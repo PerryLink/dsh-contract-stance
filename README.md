@@ -1,6 +1,14 @@
 # dsh-contract-stance — Contract clause stance register completeness and self-consistency check
 
+[![DSH Market](https://raw.githubusercontent.com/2BingLing/dsh-market/master/assets/readme/badge-listed-en.svg)](https://dsh.market/)
+
 `dsh-contract-stance` reads one clause-stance register — the contract header plus one row per clause — and checks that register's own completeness and self-consistency: that each clause's text is recorded, that your stance comes from your own vocabulary, that the risk grade does too, that a must-have clause records both a fallback position and an owner, that clause numbers are unique, that the register names the contract and your side, and that no unreplaced placeholder survives in the clause text.
+
+## What it looks like
+
+![Terminal demo of dsh-contract-stance: real output over its CS-001 fixture](https://raw.githubusercontent.com/PerryLink/dsh-contract-stance/main/docs/assets/dsh-contract-stance-demo.png)
+
+Real output from this plugin over its own `CS-001` test fixture — not a mock-up. The rule pack ships no invented quotations, so a finding names both the clause it applied and the fact that the clause text was not obtained.
 
 ## What it answers
 

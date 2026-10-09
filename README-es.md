@@ -1,6 +1,14 @@
 # dsh-contract-stance — Verificación de la integridad y la coherencia interna del registro de posturas sobre cláusulas contractuales
 
+[![DSH Market](https://raw.githubusercontent.com/2BingLing/dsh-market/master/assets/readme/badge-listed-en.svg)](https://dsh.market/)
+
 `dsh-contract-stance` lee un registro de posturas sobre cláusulas —la cabecera del contrato más una fila por cláusula— y comprueba la integridad y la coherencia interna de ese registro: que se recoja el texto de cada cláusula, que su postura proceda de su propio vocabulario y que la calificación de riesgo también, que una cláusula irrenunciable registre tanto un límite de concesión como un responsable, que los números de cláusula sean únicos, que el registro declare el contrato y su propia parte y que no quede ningún marcador de plantilla sin sustituir en el texto de la cláusula.
+
+## Cómo se ve la salida
+
+![Terminal demo of dsh-contract-stance: real output over its CS-001 fixture](https://raw.githubusercontent.com/PerryLink/dsh-contract-stance/main/docs/assets/dsh-contract-stance-demo.png)
+
+Salida real de este plugin sobre su propio fixture de prueba `CS-001` — no es un montaje. El paquete de reglas no inventa citas, así que cada hallazgo nombra la cláusula aplicada y advierte que su texto no se obtuvo.
 
 ## Qué responde
 

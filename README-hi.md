@@ -6,7 +6,9 @@
 
 ## आउटपुट कैसा दिखता है
 
-![Terminal demo of dsh-contract-stance: real output over its CS-001 fixture](https://raw.githubusercontent.com/PerryLink/dsh-contract-stance/main/docs/assets/dsh-contract-stance-demo.png)
+![Terminal demo of dsh-contract-stance: real output over its CS-001 fixture](https://raw.githubusercontent.com/PerryLink/dsh-contract-stance/main/docs/assets/dsh-contract-stance-hero.png)
+
+![Animated terminal demo of dsh-contract-stance](https://raw.githubusercontent.com/PerryLink/dsh-contract-stance/main/docs/assets/dsh-contract-stance-demo.gif)
 
 इस प्लगइन का अपने ही `CS-001` टेस्ट फ़िक्स्चर पर वास्तविक आउटपुट — कोई नकली चित्र नहीं। नियम-पैक उद्धरण नहीं गढ़ता: हर निष्कर्ष लागू किए गए खंड का नाम और यह भी बताता है कि उसका excerpt शब्दशः उद्धरण है या सिद्धांत-व्युत्पन्न।
 

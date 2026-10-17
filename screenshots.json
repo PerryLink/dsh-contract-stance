@@ -1,0 +1,14 @@
+[
+  {
+    "path": "docs/assets/dsh-contract-stance-hero.png",
+    "kind": "hero",
+    "alt": "dsh-contract-stance terminal output",
+    "caption": "Real dsh-contract-stance checker output; 31 tests passed."
+  },
+  {
+    "path": "docs/assets/dsh-contract-stance-demo.gif",
+    "kind": "demo",
+    "alt": "Animated dsh-contract-stance terminal session",
+    "caption": "The same run, assembled line by line."
+  }
+]

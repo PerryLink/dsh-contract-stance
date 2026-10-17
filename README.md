@@ -6,7 +6,9 @@
 
 ## What it looks like
 
-![Terminal demo of dsh-contract-stance: real output over its CS-001 fixture](https://raw.githubusercontent.com/PerryLink/dsh-contract-stance/main/docs/assets/dsh-contract-stance-demo.png)
+![Terminal demo of dsh-contract-stance: real output over its CS-001 fixture](https://raw.githubusercontent.com/PerryLink/dsh-contract-stance/main/docs/assets/dsh-contract-stance-hero.png)
+
+![Animated terminal demo of dsh-contract-stance](https://raw.githubusercontent.com/PerryLink/dsh-contract-stance/main/docs/assets/dsh-contract-stance-demo.gif)
 
 Real output from this plugin over its own `CS-001` test fixture — not a mock-up. The rule pack ships no invented quotations: a finding names the clause it applied and whether that excerpt is a verbatim quotation or a derived principle.
 

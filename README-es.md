@@ -6,7 +6,9 @@
 
 ## Cómo se ve la salida
 
-![Terminal demo of dsh-contract-stance: real output over its CS-001 fixture](https://raw.githubusercontent.com/PerryLink/dsh-contract-stance/main/docs/assets/dsh-contract-stance-demo.png)
+![Terminal demo of dsh-contract-stance: real output over its CS-001 fixture](https://raw.githubusercontent.com/PerryLink/dsh-contract-stance/main/docs/assets/dsh-contract-stance-hero.png)
+
+![Animated terminal demo of dsh-contract-stance](https://raw.githubusercontent.com/PerryLink/dsh-contract-stance/main/docs/assets/dsh-contract-stance-demo.gif)
 
 Salida real de este plugin sobre su propio fixture de prueba `CS-001` — no es un montaje. El paquete de reglas no inventa citas: cada hallazgo nombra la cláusula aplicada y si su excerpt es una cita literal o una inferencia de principio.
 

@@ -4,6 +4,13 @@
 
 `dsh-contract-stance` lee un registro de posturas sobre cláusulas —la cabecera del contrato más una fila por cláusula— y comprueba la integridad y la coherencia interna de ese registro: que se recoja el texto de cada cláusula, que su postura proceda de su propio vocabulario y que la calificación de riesgo también, que una cláusula irrenunciable registre tanto un límite de concesión como un responsable, que los números de cláusula sean únicos, que el registro declare el contrato y su propia parte y que no quede ningún marcador de plantilla sin sustituir en el texto de la cláusula.
 
+## Install
+
+```sh
+dsh plugin --profile <name> add dsh-contract-stance
+dsh --profile <name> --dump-config | grep 'dsh-contract-stance'
+```
+
 ## Cómo se ve la salida
 
 ![Terminal demo of dsh-contract-stance: real output over its CS-001 fixture](https://raw.githubusercontent.com/PerryLink/dsh-contract-stance/main/docs/assets/dsh-contract-stance-hero.png)
@@ -75,13 +82,6 @@ depend on the deal, the counterparty's leverage and your own risk appetite.**
 ## What it does
 
 La tabla de reglas, los campos y el comportamiento detallado están en [README.md](README.md#what-it-does) (versión principal en inglés). El plugin sólo enumera divergencias literales frente a las cláusulas citadas e indica en `skipped` cada comprobación que no pudo ejecutarse.
-
-## Install
-
-```sh
-dsh plugin --profile <name> add dsh-contract-stance
-dsh --profile <name> --dump-config | grep 'dsh-contract-stance'
-```
 
 ## Configuration
 

@@ -4,6 +4,13 @@
 
 `dsh-contract-stance` 读取一份合同条款立场台账——合同表头加每条条款一行——核对这份台账自身的齐备与自洽：条款是否摘录原文、本方立场是否使用本机构口径的取值、风险等级是否同样在册、必保条款是否同时写明退让底线与责任人、条款号是否唯一、台账是否声明合同与本方主体、条款原文是否残留未替换的占位符。
 
+## Install
+
+```sh
+dsh plugin --profile <name> add dsh-contract-stance
+dsh --profile <name> --dump-config | grep 'dsh-contract-stance'
+```
+
 ## 实际输出长什么样
 
 ![Terminal demo of dsh-contract-stance: real output over its CS-001 fixture](https://raw.githubusercontent.com/PerryLink/dsh-contract-stance/main/docs/assets/dsh-contract-stance-hero.png)
@@ -75,13 +82,6 @@ depend on the deal, the counterparty's leverage and your own risk appetite.**
 ## What it does
 
 规则表、字段说明与行为细节见 [README.md](README.md#what-it-does)（英文主版本）。本插件只列出材料与所引条款之间的字面差异，并对无法执行的检查在 `skipped` 中逐项说明。
-
-## Install
-
-```sh
-dsh plugin --profile <name> add dsh-contract-stance
-dsh --profile <name> --dump-config | grep 'dsh-contract-stance'
-```
 
 ## Configuration
 

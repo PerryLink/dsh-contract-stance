@@ -4,6 +4,13 @@
 
 `dsh-contract-stance` reads one clause-stance register — the contract header plus one row per clause — and checks that register's own completeness and self-consistency: that each clause's text is recorded, that your stance comes from your own vocabulary, that the risk grade does too, that a must-have clause records both a fallback position and an owner, that clause numbers are unique, that the register names the contract and your side, and that no unreplaced placeholder survives in the clause text.
 
+## Install
+
+```sh
+dsh plugin --profile <name> add dsh-contract-stance
+dsh --profile <name> --dump-config | grep 'dsh-contract-stance'
+```
+
 ## What it looks like
 
 ![Terminal demo of dsh-contract-stance: real output over its CS-001 fixture](https://raw.githubusercontent.com/PerryLink/dsh-contract-stance/main/docs/assets/dsh-contract-stance-hero.png)
@@ -86,13 +93,6 @@ per clause — applies a versioned rule pack, and returns a report.
 | `CS-005` | clause numbers are unique | warn | principle |
 | `CS-006` | the register names the contract and your side | warn | direct |
 | `CS-007` | the clause text holds no unreplaced placeholder | warn | principle |
-## Install
-
-```sh
-dsh plugin --profile <name> add dsh-contract-stance
-dsh --profile <name> --dump-config | grep 'dsh-contract-stance'
-```
-
 ## Configuration
 
 | Key | Type | Default | Description |

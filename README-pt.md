@@ -1,5 +1,7 @@
 # dsh-contract-stance — Verificação da completude e da coerência interna do registo de posições sobre cláusulas contratuais
 
+[English](README.md) · [简体中文](README-zh.md) · [Español](README-es.md) · [Português](README-pt.md) · [हिन्दी](README-hi.md)
+
 [![DSH Market](https://raw.githubusercontent.com/2BingLing/dsh-market/master/assets/readme/badge-listed-en.svg)](https://dsh.market/)
 
 `dsh-contract-stance` lê um registo de posições sobre cláusulas —o cabeçalho do contrato mais uma linha por cláusula— e verifica a completude e a coerência interna desse registo: se o texto de cada cláusula está registado, se a sua posição vem do seu próprio vocabulário e se a classificação de risco também, se uma cláusula irrenunciável regista tanto um limite de cedência como um responsável, se os números de cláusula são únicos, se o registo declara o contrato e a sua própria parte e se não resta nenhum marcador de modelo por substituir no texto da cláusula.

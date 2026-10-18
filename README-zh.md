@@ -38,12 +38,7 @@ dsh --profile <name> --dump-config | grep 'dsh-contract-stance'
 |---|---|---|
 | 《中华人民共和国民法典》 | 现行版本与条号本次未核实 | CS-001, CS-002, CS-003, CS-004, CS-005, CS-006, CS-007 |
 
-**Boundary:** this plugin checks a **合同条款立场台账** for what a register can be held to — that each clause's
-text is recorded, that your stance comes from your vocabulary, that the risk grade does too, that a must-have
-clause records both a fallback position and an owner, that clause numbers are unique, that the register names
-the contract and your side, and that no placeholder survives. It does **not** decide whether a clause should be
-accepted, whether a risk is bearable, whether to sign, or whether a negotiating strategy is sound. **Those
-depend on the deal, the counterparty's leverage and your own risk appetite.**
+**边界（中文译文，以英文原文为准）：** 本插件核对一份**合同条款立场台账**，范围限于登记表可以据以要求的事项——每一条款的原文是否记录，你的立场是否取自你配置的取值口径，风险等级是否同样取自该口径，必保条款是否同时记录可以让步到的底线与责任人，条款号是否唯一，台账是否写明合同与本方，以及是否残留占位符。它**不**判定某条款是否应当接受、某项风险是否可承受、是否应当签署，也不判定谈判策略是否妥当。**这些取决于交易本身、对方的议价能力与你自己的风险偏好。**
 
 > ### ⚠️ What the citation rests on — and one thing this plugin must never be given
 >

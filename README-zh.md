@@ -40,32 +40,28 @@ dsh --profile <name> --dump-config | grep 'dsh-contract-stance'
 
 **边界（中文译文，以英文原文为准）：** 本插件核对一份**合同条款立场台账**，范围限于登记表可以据以要求的事项——每一条款的原文是否记录，你的立场是否取自你配置的取值口径，风险等级是否同样取自该口径，必保条款是否同时记录可以让步到的底线与责任人，条款号是否唯一，台账是否写明合同与本方，以及是否残留占位符。它**不**判定某条款是否应当接受、某项风险是否可承受、是否应当签署，也不判定谈判策略是否妥当。**这些取决于交易本身、对方的议价能力与你自己的风险偏好。**
 
-> ### ⚠️ What the citation rests on — and one thing this plugin must never be given
+> ### ⚠️ 引文依据什么——以及一件绝不能交给本插件的东西（以英文原文为准）
 >
-> **《中华人民共和国民法典》was obtained and read verbatim**, and `rules/evidence/clause-verification.md`
-> records what was quoted: article 465 (a contract lawfully formed is protected by law), article 470 (contract
-> content **一般包括** the parties, subject matter, quantity, quality, price, performance terms and liability for
-> breach), article 509, article 577 (the consequences of breach) and article 584 (damages include expected
-> profits but are capped by **foreseeability**).
+> **《中华人民共和国民法典》已取得并逐字阅读**，`rules/evidence/clause-verification.md` 记录了所引
+> 内容：第465条（依法成立的合同受法律保护）、第470条（合同内容**一般包括**当事人、标的、数量、
+> 质量、价款、履行条款与违约责任）、第509条、第577条（违约的后果）与第584条（损害赔偿包括预期
+> 利润，但以**可预见性**为限）。
 >
-> **The contract part does not regulate a negotiation register.** It governs formation, validity, performance and
-> liability; the register's columns come from your enterprise's own contract management rules. So the `excerpt`
-> fields still say "本次未取得" and every rule stays `warn` or `info`: **"this column is blank" must not be read
-> as "this breaches the Civil Code".** Note also that article 470 says **一般包括**, not 应当包括 — one more
-> reason `CS-001` does not claim a direct obligation.
+> **合同部分并不规范谈判台账。** 它规范合同的成立、效力、履行与责任；台账的列来自你自己的企业
+> 合同管理制度。因此 `excerpt` 字段仍写着“本次未取得”，每条规则也仍为 `warn` 或 `info`：
+> **“这一栏是空的”不得被读作“这违反了《民法典》。** 另请注意，第470条写的是**一般包括**，
+> 而不是应当包括——这也是 `CS-001` 不主张直接义务的又一理由。
 >
-> ⚠️ **Do not add a limitation-period rule to this plugin.** The Code *does* fix numbers — article 188 sets a
-> three-year limitation (twenty years at the outside) and article 203 rolls a period forward off a public
-> holiday — which makes "just compare the dates" look tempting. It is not workable here: the period runs from
-> **when the creditor knew or ought to have known** of the harm and the debtor, a finding of fact the register
-> does not record; the period is also subject to suspension (article 194) and interruption (article 195), and
-> article 196 lists claims the limitation does not apply to at all. A date-arithmetic rule would dress a factual
-> finding up as a calculation, which is precisely the over-claim this family avoids.
+> ⚠️ **不要向本插件添加诉讼时效规则。** 《民法典》*确实*规定了具体数字——第188条规定三年诉讼
+> 时效（最长二十年），第203条规定期间的最后一日为法定休假日的，顺延至休假日结束的次日——这让
+> “直接比较日期”看起来很有吸引力。但在这里行不通：该期间从**债权人知道或者应当知道**损害与
+> 债务人之日起算，而这是台账并不记录的事实认定；该期间还适用中止（第194条）与中断（第195条），
+> 第196条则列出根本不适用诉讼时效的请求权。日期算术规则会把事实认定包装成计算，而这恰恰是本
+> 插件族要避免的过度主张。
 >
-> **No judgement about the substance of a clause is made anywhere in this plugin.** It reads your own columns
-> and checks only that they are filled and drawn from your vocabulary. Two vocabularies ship **empty** — the
-> stance list (`CS-002`) and the risk grades (`CS-003`) — so with nothing configured those rules report
-> themselves in `skipped` rather than passing quietly.
+> **本插件任何地方都不对条款的实质作出判断。** 它读取你自己的列，只核对这些列是否填写、是否
+> 取自你的词汇表。有两份词汇表出厂为**空**——立场清单（`CS-002`）与风险等级（`CS-003`）——因此
+> 在未配置任何内容时，这些规则会在 `skipped` 中自行报告，而不是静默通过。
 
 ## Compatibility
 

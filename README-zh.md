@@ -15,13 +15,18 @@ dsh --profile <name> --dump-config | grep 'dsh-contract-stance'
 
 ## 实际输出长什么样
 
-![Terminal demo of dsh-contract-stance: real output over its CS-001 fixture](https://raw.githubusercontent.com/PerryLink/dsh-contract-stance/main/docs/assets/dsh-contract-stance-hero.png)
+![dsh-contract-stance 工作流图：调用 → 插件 → 结果。](docs/assets/dsh-contract-stance-flow.svg)
 
-![Animated terminal demo of dsh-contract-stance](https://raw.githubusercontent.com/PerryLink/dsh-contract-stance/main/docs/assets/dsh-contract-stance-demo.gif)
+*工作流概览：调用 → 插件 → 结果。下面的示例使用实际命令面。*
+
 
 本插件对自己 `CS-001` 测试夹具的**真实输出**，不是示意图。规则库不伪造引文：每条发现都会写明所引条款，以及该条 excerpt 是逐字引文还是原则性推论。
 
 ## 它回答什么问题
+
+### 示例
+
+下表是示例集：第一行是详细走查，其余行是简短案例。
 
 | 你会问 | 它怎么答 |
 |---|---|

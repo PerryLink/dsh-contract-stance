@@ -3,6 +3,7 @@
 [English](README.md) · [简体中文](README-zh.md) · [Español](README-es.md) · [Português](README-pt.md) · [हिन्दी](README-hi.md)
 
 [![DSH Market](https://raw.githubusercontent.com/2BingLing/dsh-market/master/assets/readme/badge-listed-en.svg)](https://dsh.market/)
+[![dshfind](https://dshfind.com/api/badge/PerryLink/dsh-contract-stance?metric=downloads)](https://dshfind.com/en/plugins/PerryLink/dsh-contract-stance?ref=badge)
 
 `dsh-contract-stance` संविदा खंडों के पक्ष-रुख रजिस्टर को पढ़ता है — संविदा का हेडर और प्रत्येक खंड की एक पंक्ति — और उसी रजिस्टर की पूर्णता तथा आंतरिक सुसंगति की जाँच करता है: क्या प्रत्येक खंड का मूल पाठ दर्ज है, क्या आपका पक्ष-रुख आपकी अपनी शब्दावली से लिया गया है और जोखिम-श्रेणी भी, क्या अनिवार्य खंड में छूट की सीमा और ज़िम्मेदार व्यक्ति दोनों दर्ज हैं, क्या खंड-संख्याएँ अद्वितीय हैं, क्या रजिस्टर संविदा और आपके पक्ष का उल्लेख करता है, और क्या खंड के पाठ में कोई अपरिवर्तित टेम्पलेट प्लेसहोल्डर शेष नहीं है।
 

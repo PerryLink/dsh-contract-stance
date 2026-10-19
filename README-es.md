@@ -3,6 +3,7 @@
 [English](README.md) · [简体中文](README-zh.md) · [Español](README-es.md) · [Português](README-pt.md) · [हिन्दी](README-hi.md)
 
 [![DSH Market](https://raw.githubusercontent.com/2BingLing/dsh-market/master/assets/readme/badge-listed-en.svg)](https://dsh.market/)
+[![dshfind](https://dshfind.com/api/badge/PerryLink/dsh-contract-stance?metric=downloads)](https://dshfind.com/en/plugins/PerryLink/dsh-contract-stance?ref=badge)
 
 `dsh-contract-stance` lee un registro de posturas sobre cláusulas —la cabecera del contrato más una fila por cláusula— y comprueba la integridad y la coherencia interna de ese registro: que se recoja el texto de cada cláusula, que su postura proceda de su propio vocabulario y que la calificación de riesgo también, que una cláusula irrenunciable registre tanto un límite de concesión como un responsable, que los números de cláusula sean únicos, que el registro declare el contrato y su propia parte y que no quede ningún marcador de plantilla sin sustituir en el texto de la cláusula.
 

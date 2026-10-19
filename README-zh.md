@@ -3,6 +3,7 @@
 [English](README.md) · [简体中文](README-zh.md) · [Español](README-es.md) · [Português](README-pt.md) · [हिन्दी](README-hi.md)
 
 [![DSH Market](https://raw.githubusercontent.com/2BingLing/dsh-market/master/assets/readme/badge-listed-en.svg)](https://dsh.market/)
+[![dshfind](https://dshfind.com/api/badge/PerryLink/dsh-contract-stance?metric=downloads)](https://dshfind.com/en/plugins/PerryLink/dsh-contract-stance?ref=badge)
 
 `dsh-contract-stance` 读取一份合同条款立场台账——合同表头加每条条款一行——核对这份台账自身的齐备与自洽：条款是否摘录原文、本方立场是否使用本机构口径的取值、风险等级是否同样在册、必保条款是否同时写明退让底线与责任人、条款号是否唯一、台账是否声明合同与本方主体、条款原文是否残留未替换的占位符。
 

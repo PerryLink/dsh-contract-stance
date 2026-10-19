@@ -3,6 +3,7 @@
 [English](README.md) · [简体中文](README-zh.md) · [Español](README-es.md) · [Português](README-pt.md) · [हिन्दी](README-hi.md)
 
 [![DSH Market](https://raw.githubusercontent.com/2BingLing/dsh-market/master/assets/readme/badge-listed-en.svg)](https://dsh.market/)
+[![dshfind](https://dshfind.com/api/badge/PerryLink/dsh-contract-stance?metric=downloads)](https://dshfind.com/en/plugins/PerryLink/dsh-contract-stance?ref=badge)
 
 `dsh-contract-stance` reads one clause-stance register — the contract header plus one row per clause — and checks that register's own completeness and self-consistency: that each clause's text is recorded, that your stance comes from your own vocabulary, that the risk grade does too, that a must-have clause records both a fallback position and an owner, that clause numbers are unique, that the register names the contract and your side, and that no unreplaced placeholder survives in the clause text.
 

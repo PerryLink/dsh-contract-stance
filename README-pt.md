@@ -29,6 +29,35 @@ Saída real deste plugin sobre o seu próprio fixture de teste `CS-001` — não
 
 A tabela abaixo é o conjunto de exemplos: a primeira linha é o caso detalhado e as demais são casos curtos.
 
+#### Saída detalhada
+
+**Ferramenta** `contract_stance`
+
+**Entrada**
+
+~~~json
+{"rows":[{"条款号":"第 8.2 条","条款主题":"逾期付款违约金","条款原文":"", ...}]}
+~~~
+ 
+**Saída**
+
+~~~json
+{
+  "id": "dsh-contract-stance.CS-001.de09b5a6",
+  "ruleId": "CS-001",
+  "severity": "warn",
+  "locator": {
+    "row": 1,
+    "field": "text"
+  },
+  "found": "第 1 行「text」为空",
+  "expected": "「text」应填写",
+  "fix": "补填条款原文；本条只核对是否摘录，不判断条款是否可接受"
+}
+~~~
+
+*Observado em `dsh-contract-stance/tests/fixtures/CS-001/CS-001-unsafe.json; dsh-contract-stance/tests/fixtures/CS-001/cases.json; dsh-contract-stance/rules/contract-stance.yaml; dsh-contract-stance/tests/index.test.ts`*
+
 | Você pergunta | O que ele responde |
 |---|---|
 | Uma linha tem tema, mas a coluna do texto da cláusula está vazia. Isso é reportado? | Sim. `CS-001` exige a coluna `text` em todas as linhas: sem o texto não é possível verificar a que redação se refere a posição. A regra verifica apenas que o texto está registado; não julga se a cláusula deve ser aceite nem se envolve risco jurídico. |

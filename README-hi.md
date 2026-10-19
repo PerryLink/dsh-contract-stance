@@ -29,6 +29,35 @@ dsh --profile <name> --dump-config | grep 'dsh-contract-stance'
 
 नीचे दी गई तालिका उदाहरण-समुच्चय है: पहली पंक्ति विस्तृत केस है, बाकी संक्षिप्त केस हैं।
 
+#### विस्तृत आउटपुट
+
+**उपकरण** `contract_stance`
+
+**इनपुट**
+
+~~~json
+{"rows":[{"条款号":"第 8.2 条","条款主题":"逾期付款违约金","条款原文":"", ...}]}
+~~~
+ 
+**आउटपुट**
+
+~~~json
+{
+  "id": "dsh-contract-stance.CS-001.de09b5a6",
+  "ruleId": "CS-001",
+  "severity": "warn",
+  "locator": {
+    "row": 1,
+    "field": "text"
+  },
+  "found": "第 1 行「text」为空",
+  "expected": "「text」应填写",
+  "fix": "补填条款原文；本条只核对是否摘录，不判断条款是否可接受"
+}
+~~~
+
+*स्रोत `dsh-contract-stance/tests/fixtures/CS-001/CS-001-unsafe.json; dsh-contract-stance/tests/fixtures/CS-001/cases.json; dsh-contract-stance/rules/contract-stance.yaml; dsh-contract-stance/tests/index.test.ts`*
+
 | आपका सवाल | इसका जवाब |
 |---|---|
 | किसी पंक्ति में विषय भरा है, पर खंड-पाठ का कॉलम खाली है। क्या यह दर्ज होता है? | हाँ। `CS-001` हर पंक्ति में `text` कॉलम की अपेक्षा करता है: पाठ के बिना यह जाँचा ही नहीं जा सकता कि पक्ष-रुख किस शब्दावली पर है। नियम केवल यह देखता है कि पाठ दर्ज है; यह नहीं आँकता कि खंड स्वीकार्य है या उसमें विधिक जोखिम है। |

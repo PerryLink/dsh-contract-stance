@@ -28,6 +28,35 @@ dsh --profile <name> --dump-config | grep 'dsh-contract-stance'
 
 The table below is the example set: the first row is the detailed walkthrough, the remaining rows are short cases.
 
+#### Detailed output
+
+**Tool** `contract_stance`
+
+**Input**
+
+~~~json
+{"rows":[{"条款号":"第 8.2 条","条款主题":"逾期付款违约金","条款原文":"", ...}]}
+~~~
+ 
+**Output**
+
+~~~json
+{
+  "id": "dsh-contract-stance.CS-001.de09b5a6",
+  "ruleId": "CS-001",
+  "severity": "warn",
+  "locator": {
+    "row": 1,
+    "field": "text"
+  },
+  "found": "第 1 行「text」为空",
+  "expected": "「text」应填写",
+  "fix": "补填条款原文；本条只核对是否摘录，不判断条款是否可接受"
+}
+~~~
+
+*Observed from `dsh-contract-stance/tests/fixtures/CS-001/CS-001-unsafe.json; dsh-contract-stance/tests/fixtures/CS-001/cases.json; dsh-contract-stance/rules/contract-stance.yaml; dsh-contract-stance/tests/index.test.ts`*
+
 | You ask | What it answers |
 |---|---|
 | A clause row carries a topic, but the clause-text column is blank. Is that reported? | Yes. `CS-001` requires the `text` column on every row: without the wording, a stance cannot be checked against what it is a stance on. The rule checks only that the wording is recorded — it does not judge whether the clause should be accepted or whether it carries legal risk. |

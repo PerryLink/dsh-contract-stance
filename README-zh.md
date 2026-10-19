@@ -29,6 +29,35 @@ dsh --profile <name> --dump-config | grep 'dsh-contract-stance'
 
 下表是示例集：第一行是详细走查，其余行是简短案例。
 
+#### 详细输出
+
+**工具** `contract_stance`
+
+**输入**
+
+~~~json
+{"rows":[{"条款号":"第 8.2 条","条款主题":"逾期付款违约金","条款原文":"", ...}]}
+~~~
+ 
+**输出**
+
+~~~json
+{
+  "id": "dsh-contract-stance.CS-001.de09b5a6",
+  "ruleId": "CS-001",
+  "severity": "warn",
+  "locator": {
+    "row": 1,
+    "field": "text"
+  },
+  "found": "第 1 行「text」为空",
+  "expected": "「text」应填写",
+  "fix": "补填条款原文；本条只核对是否摘录，不判断条款是否可接受"
+}
+~~~
+
+*来源 `dsh-contract-stance/tests/fixtures/CS-001/CS-001-unsafe.json; dsh-contract-stance/tests/fixtures/CS-001/cases.json; dsh-contract-stance/rules/contract-stance.yaml; dsh-contract-stance/tests/index.test.ts`*
+
 | 你会问 | 它怎么答 |
 |---|---|
 | 某行只填了条款主题，条款原文栏是空的，会被报出吗？ | 会。`CS-001` 要求每行都填写 `text` 栏：没有原文，就无法核对立场是针对什么措辞作出的。本条只核对原文栏是否填写，不判断该条款是否应当接受、是否存在法律风险。 |

@@ -1,6 +1,6 @@
 # dsh-contract-stance — 合同条款立场台账核对
 
-## 快速试跑（1 分钟）
+### 快速试跑（1 分钟）
 
 ```bash
 node samples/quickstart/run.mjs --check

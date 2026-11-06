@@ -1,8 +1,8 @@
 <div align="center">
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="docs/assets/dsh-contract-stance-flow-dark.svg">
-  <img src="docs/assets/dsh-contract-stance-flow-light.svg" width="100%" alt="Flujo de dsh-contract-stance: material → herramienta contract_stance → paquete de reglas CS-001..CS-007 → informe (error/warn/info + skipped)">
+  <source media="(prefers-color-scheme: dark)" srcset="docs/assets/dsh-contract-stance-flow-v5-dark.svg">
+  <img src="docs/assets/dsh-contract-stance-flow-v5-light.svg" width="100%" alt="Estructura: a la izquierda, una página de registro de solo lectura (encabezado y seis campos; el del texto de la cláusula está vacío); a la derecha, las siete reglas anotadas con el campo que leen, su tipo de comprobación y su resultado; abajo, los canales issues[] y skipped[] confluyen en markdown + reportJson">
 </picture>
 
 # dsh-contract-stance
@@ -316,7 +316,7 @@ pnpm pack
 
 `node ../scripts/sync-shared.mjs dsh-contract-stance` copia el kit compartido de `../_shared` a `src/shared/`; vuelva a ejecutarlo tras cada cambio compartido. El plugin es **guiado por datos**: `src/model.ts` declara la forma de la tabla y los alias de columna, el kit compartido aporta el lector y el motor de comprobación, y el paquete de reglas declara cada comprobación.
 
-Las imágenes del README se generan mediante [`scripts/gen-readme-assets.py`](scripts/gen-readme-assets.py) (Python + Pillow) en `docs/assets/dsh-contract-stance-flow-{light,dark}.svg`; el script puede ejecutarse de nuevo y los diagramas solo contienen tokens de comandos y claves de configuración, compartidos por los cinco idiomas.
+Las imágenes del README se generan mediante [`scripts/gen-readme-assets.py`](scripts/gen-readme-assets.py) (Pillow para la cabecera, SVG escrito a mano para la estructura) en `docs/assets/dsh-contract-stance-hero-{zh,en}-{light,dark}.webp` y `docs/assets/dsh-contract-stance-flow-v5-{light,dark}.svg`; el script puede ejecutarse de nuevo y los diagramas solo contienen tokens de comandos y claves de configuración, compartidos por los cinco idiomas.
 
 Topics: `deepseek-harness`, `dsh`, `dsh-plugin`, `cordis`, `contract`, `stance`
 

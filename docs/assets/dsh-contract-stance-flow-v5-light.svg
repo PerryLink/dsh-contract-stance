@@ -1,0 +1,94 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="660" viewBox="0 0 1100 660" role="img" aria-label="dsh-contract-stance structure">
+<defs><linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f9f6fd"/><stop offset="1" stop-color="#e4eaf8"/></linearGradient><filter id="sh" x="-10%" y="-14%" width="120%" height="134%"><feDropShadow dx="0" dy="6" stdDeviation="8" flood-color="#1b1533" flood-opacity="0.10"/></filter></defs>
+<rect width="1100" height="660" fill="url(#bg)"/>
+<text x="44" y="46" fill="#4B67B4" font-family="Consolas,'Cascadia Mono','SFMono-Regular','Menlo',ui-monospace,monospace" font-size="14" font-weight="700" letter-spacing="1.1">CLAUSE-LEVEL · 7 RULES · ISSUES + SKIPPED</text>
+<text x="44" y="80" fill="#171821" font-family="Consolas,'Cascadia Mono','SFMono-Regular','Menlo',ui-monospace,monospace" font-size="27" font-weight="700">dsh-contract-stance</text>
+<text x="44" y="104" fill="#565b6b" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="14.5" >Seven rules sit on the columns they read; every finding comes back as row + column.</text>
+<text x="1056" y="46" fill="#8b8fa3" font-family="Consolas,'Cascadia Mono','SFMono-Regular','Menlo',ui-monospace,monospace" font-size="14" text-anchor="end">rules/contract-stance.yaml · pack 2026.1</text>
+<text x="1056" y="68" fill="#8b8fa3" font-family="Consolas,'Cascadia Mono','SFMono-Regular','Menlo',ui-monospace,monospace" font-size="14" text-anchor="end">contract_stance · JSON | YAML · file | material</text>
+<line x1="44" y1="120" x2="1056" y2="120" stroke="#d8d6e6" stroke-width="1.2" stroke-linecap="round"/>
+<rect x="44" y="140" width="1012" height="408" rx="20" fill="#ffffff" filter="url(#sh)"/>
+<rect x="44" y="140" width="1012" height="408" rx="20" fill="none" stroke="#e3e1f0" stroke-width="1.6"/>
+<line x1="648" y1="160" x2="648" y2="528" stroke="#d8d6e6" stroke-width="1.2" stroke-linecap="round"/>
+<text x="68" y="162" fill="#4B67B4" font-family="Consolas,'Cascadia Mono','SFMono-Regular','Menlo',ui-monospace,monospace" font-size="14" font-weight="700">MATERIAL · REGISTER (READ-ONLY)</text>
+<text x="68" y="188" fill="#8b8fa3" font-family="Consolas,'Cascadia Mono','SFMono-Regular','Menlo',ui-monospace,monospace" font-size="14" >contractName · party · contractNo · version</text>
+<text x="68" y="212" fill="#171821" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="17" >某某设备采购合同 · 某某公司 · HT-2026-018 · 第 3 轮谈判稿</text>
+<line x1="68" y1="226" x2="620" y2="226" stroke="#d8d6e6" stroke-width="1.2" stroke-linecap="round"/>
+<text x="68" y="254" fill="#171821" font-family="Consolas,'Cascadia Mono','SFMono-Regular','Menlo',ui-monospace,monospace" font-size="17" font-weight="700">row 1 · clauseNo 第 8.2 条 · topic 逾期付款违约金</text>
+<text x="68" y="286" fill="#8b8fa3" font-family="Consolas,'Cascadia Mono','SFMono-Regular','Menlo',ui-monospace,monospace" font-size="14" >text</text>
+<rect x="180" y="270" width="120" height="30" rx="10" fill="#ecebf9" stroke="#4B67B4" stroke-width="1.6" stroke-dasharray="6 4"/>
+<text x="240" y="290" fill="#4B67B4" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="15" text-anchor="middle">（空）</text>
+<text x="68" y="328" fill="#8b8fa3" font-family="Consolas,'Cascadia Mono','SFMono-Regular','Menlo',ui-monospace,monospace" font-size="14" >stance</text>
+<text x="180" y="328" fill="#171821" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="17" >可谈</text>
+<text x="68" y="370" fill="#8b8fa3" font-family="Consolas,'Cascadia Mono','SFMono-Regular','Menlo',ui-monospace,monospace" font-size="14" >riskLevel</text>
+<text x="180" y="370" fill="#171821" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="17" >中</text>
+<text x="68" y="412" fill="#8b8fa3" font-family="Consolas,'Cascadia Mono','SFMono-Regular','Menlo',ui-monospace,monospace" font-size="14" >fallback</text>
+<text x="180" y="412" fill="#171821" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="17" >比例可降至万分之三，须增加…</text>
+<text x="68" y="454" fill="#8b8fa3" font-family="Consolas,'Cascadia Mono','SFMono-Regular','Menlo',ui-monospace,monospace" font-size="14" >owner</text>
+<text x="180" y="454" fill="#171821" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="17" >王经理</text>
+<text x="68" y="496" fill="#8b8fa3" font-family="Consolas,'Cascadia Mono','SFMono-Regular','Menlo',ui-monospace,monospace" font-size="14" >clauseNo</text>
+<text x="180" y="496" fill="#171821" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="17" >第 8.2 条</text>
+<text x="68" y="530" fill="#8b8fa3" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="14" >columns normalised: case · spaces · _ · - — material never rewritten</text>
+<text x="668" y="162" fill="#4B67B4" font-family="Consolas,'Cascadia Mono','SFMono-Regular','Menlo',ui-monospace,monospace" font-size="14" font-weight="700">RULE PACK · FIELD · KIND · OUTCOME</text>
+<rect x="668" y="178" width="372" height="42" rx="11" fill="#ffffff" stroke="#e3e1f0" stroke-width="1.3"/>
+<rect x="668" y="186" width="4" height="26" rx="2" fill="#B0530A"/>
+<text x="684" y="197" fill="#171821" font-family="Consolas,'Cascadia Mono','SFMono-Regular','Menlo',ui-monospace,monospace" font-size="17" font-weight="700">CS-001</text>
+<text x="744" y="197" fill="#171821" font-family="Consolas,'Cascadia Mono','SFMono-Regular','Menlo',ui-monospace,monospace" font-size="16.5" >text</text>
+<text x="684" y="215" fill="#8b8fa3" font-family="Consolas,'Cascadia Mono','SFMono-Regular','Menlo',ui-monospace,monospace" font-size="14" >presence</text>
+<text x="1024" y="215" fill="#B0530A" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="16" text-anchor="end">1 issue</text>
+<rect x="668" y="225" width="372" height="42" rx="11" fill="#ffffff" stroke="#e3e1f0" stroke-width="1.3"/>
+<rect x="668" y="233" width="4" height="26" rx="2" fill="#4B67B4"/>
+<text x="684" y="244" fill="#171821" font-family="Consolas,'Cascadia Mono','SFMono-Regular','Menlo',ui-monospace,monospace" font-size="17" font-weight="700">CS-002</text>
+<text x="744" y="244" fill="#171821" font-family="Consolas,'Cascadia Mono','SFMono-Regular','Menlo',ui-monospace,monospace" font-size="16.5" >stance</text>
+<text x="684" y="262" fill="#8b8fa3" font-family="Consolas,'Cascadia Mono','SFMono-Regular','Menlo',ui-monospace,monospace" font-size="14" >enum</text>
+<text x="1024" y="262" fill="#4B67B4" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="16" text-anchor="end">skipped</text>
+<rect x="668" y="272" width="372" height="42" rx="11" fill="#ffffff" stroke="#e3e1f0" stroke-width="1.3"/>
+<rect x="668" y="280" width="4" height="26" rx="2" fill="#4B67B4"/>
+<text x="684" y="291" fill="#171821" font-family="Consolas,'Cascadia Mono','SFMono-Regular','Menlo',ui-monospace,monospace" font-size="17" font-weight="700">CS-003</text>
+<text x="744" y="291" fill="#171821" font-family="Consolas,'Cascadia Mono','SFMono-Regular','Menlo',ui-monospace,monospace" font-size="16.5" >riskLevel</text>
+<text x="684" y="309" fill="#8b8fa3" font-family="Consolas,'Cascadia Mono','SFMono-Regular','Menlo',ui-monospace,monospace" font-size="14" >enum</text>
+<text x="1024" y="309" fill="#4B67B4" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="16" text-anchor="end">skipped</text>
+<rect x="668" y="319" width="372" height="42" rx="11" fill="#ffffff" stroke="#e3e1f0" stroke-width="1.3"/>
+<rect x="668" y="327" width="4" height="26" rx="2" fill="#1F7A4A"/>
+<text x="684" y="338" fill="#171821" font-family="Consolas,'Cascadia Mono','SFMono-Regular','Menlo',ui-monospace,monospace" font-size="17" font-weight="700">CS-004</text>
+<text x="744" y="338" fill="#171821" font-family="Consolas,'Cascadia Mono','SFMono-Regular','Menlo',ui-monospace,monospace" font-size="16.5" >fallback + owner</text>
+<text x="684" y="356" fill="#8b8fa3" font-family="Consolas,'Cascadia Mono','SFMono-Regular','Menlo',ui-monospace,monospace" font-size="14" >conditionalPresence</text>
+<text x="1024" y="356" fill="#1F7A4A" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="16" text-anchor="end">no diff</text>
+<rect x="668" y="366" width="372" height="42" rx="11" fill="#ffffff" stroke="#e3e1f0" stroke-width="1.3"/>
+<rect x="668" y="374" width="4" height="26" rx="2" fill="#1F7A4A"/>
+<text x="684" y="385" fill="#171821" font-family="Consolas,'Cascadia Mono','SFMono-Regular','Menlo',ui-monospace,monospace" font-size="17" font-weight="700">CS-005</text>
+<text x="744" y="385" fill="#171821" font-family="Consolas,'Cascadia Mono','SFMono-Regular','Menlo',ui-monospace,monospace" font-size="16.5" >clauseNo</text>
+<text x="684" y="403" fill="#8b8fa3" font-family="Consolas,'Cascadia Mono','SFMono-Regular','Menlo',ui-monospace,monospace" font-size="14" >unique</text>
+<text x="1024" y="403" fill="#1F7A4A" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="16" text-anchor="end">no diff</text>
+<rect x="668" y="413" width="372" height="42" rx="11" fill="#ffffff" stroke="#e3e1f0" stroke-width="1.3"/>
+<rect x="668" y="421" width="4" height="26" rx="2" fill="#1F7A4A"/>
+<text x="684" y="432" fill="#171821" font-family="Consolas,'Cascadia Mono','SFMono-Regular','Menlo',ui-monospace,monospace" font-size="17" font-weight="700">CS-006</text>
+<text x="744" y="432" fill="#171821" font-family="Consolas,'Cascadia Mono','SFMono-Regular','Menlo',ui-monospace,monospace" font-size="16.5" >header</text>
+<text x="684" y="450" fill="#8b8fa3" font-family="Consolas,'Cascadia Mono','SFMono-Regular','Menlo',ui-monospace,monospace" font-size="14" >headerPresence</text>
+<text x="1024" y="450" fill="#1F7A4A" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="16" text-anchor="end">no diff</text>
+<rect x="668" y="460" width="372" height="42" rx="11" fill="#ffffff" stroke="#e3e1f0" stroke-width="1.3"/>
+<rect x="668" y="468" width="4" height="26" rx="2" fill="#1F7A4A"/>
+<text x="684" y="479" fill="#171821" font-family="Consolas,'Cascadia Mono','SFMono-Regular','Menlo',ui-monospace,monospace" font-size="17" font-weight="700">CS-007</text>
+<text x="744" y="479" fill="#171821" font-family="Consolas,'Cascadia Mono','SFMono-Regular','Menlo',ui-monospace,monospace" font-size="16.5" >text</text>
+<text x="684" y="497" fill="#8b8fa3" font-family="Consolas,'Cascadia Mono','SFMono-Regular','Menlo',ui-monospace,monospace" font-size="14" >containsAny</text>
+<text x="1024" y="497" fill="#1F7A4A" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="16" text-anchor="end">no diff</text>
+<text x="668" y="522" fill="#8b8fa3" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="14" >excerpt must be verbatim, ≥ 8 chars</text>
+<text x="668" y="538" fill="#8b8fa3" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="14" >kind → cap: derived = warn, institutional = info</text>
+<rect x="44" y="566" width="1012" height="62" rx="18" fill="#ffffff" filter="url(#sh)"/>
+<rect x="44" y="566" width="1012" height="62" rx="18" fill="none" stroke="#e3e1f0" stroke-width="1.6"/>
+<text x="68" y="590" fill="#4B67B4" font-family="Consolas,'Cascadia Mono','SFMono-Regular','Menlo',ui-monospace,monospace" font-size="14" font-weight="700">REPORT</text>
+<text x="68" y="614" fill="#8b8fa3" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="14" >returned to the model</text>
+<rect x="300" y="578" width="120" height="20" rx="10" fill="#FDF1E3" stroke="#E6B87C" stroke-width="1.2"/>
+<text x="360" y="592" fill="#B0530A" font-family="Consolas,'Cascadia Mono','SFMono-Regular','Menlo',ui-monospace,monospace" font-size="15" text-anchor="middle">issues[] · 1</text>
+<rect x="300" y="602" width="128" height="20" rx="10" fill="#ecebf9" stroke="#4B67B4" stroke-width="1.2"/>
+<text x="364" y="616" fill="#4B67B4" font-family="Consolas,'Cascadia Mono','SFMono-Regular','Menlo',ui-monospace,monospace" font-size="15" text-anchor="middle">skipped[] · 2</text>
+<line x1="420" y1="588" x2="452" y2="588" stroke="#c9c7dd" stroke-width="1.4" stroke-linecap="round"/>
+<line x1="428" y1="612" x2="452" y2="612" stroke="#c9c7dd" stroke-width="1.4" stroke-linecap="round"/>
+<line x1="452" y1="588" x2="452" y2="612" stroke="#c9c7dd" stroke-width="1.4" stroke-linecap="round"/>
+<line x1="452" y1="600" x2="466" y2="600" stroke="#c9c7dd" stroke-width="1.4" stroke-linecap="round"/>
+<path d="M474 600 l-8 -4.6 v9.2 z" fill="#c9c7dd"/>
+<rect x="474" y="582" width="219" height="36" rx="18" fill="#ffffff" stroke="#e3e1f0" stroke-width="1.4"/>
+<text x="583.5" y="605" fill="#171821" font-family="Consolas,'Cascadia Mono','SFMono-Regular','Menlo',ui-monospace,monospace" font-size="16.5" text-anchor="middle">markdown · reportJson</text>
+<text x="1028" y="590" fill="#8b8fa3" font-family="Consolas,'Cascadia Mono','SFMono-Regular','Menlo',ui-monospace,monospace" font-size="14" text-anchor="end">error 0 · warn 1 · info 0 · skipped 2</text>
+<text x="1028" y="614" fill="#565b6b" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="14" text-anchor="end">no verdict · skipped ≠ clean</text>
+</svg>

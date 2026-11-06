@@ -1,8 +1,8 @@
 <div align="center">
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="docs/assets/dsh-contract-stance-flow-dark.svg">
-  <img src="docs/assets/dsh-contract-stance-flow-light.svg" width="100%" alt="Fluxo do dsh-contract-stance: material → ferramenta contract_stance → pacote de regras CS-001..CS-007 → relatório (error/warn/info + skipped)">
+  <source media="(prefers-color-scheme: dark)" srcset="docs/assets/dsh-contract-stance-flow-v5-dark.svg">
+  <img src="docs/assets/dsh-contract-stance-flow-v5-light.svg" width="100%" alt="Estrutura: à esquerda, uma página de registo só de leitura (cabeçalho e seis campos; o do texto da cláusula está vazio); à direita, as sete regras anotadas com o campo que leem, o tipo de verificação e o resultado; abaixo, os canais issues[] e skipped[] convergem em markdown + reportJson">
 </picture>
 
 # dsh-contract-stance
@@ -316,7 +316,7 @@ pnpm pack
 
 `node ../scripts/sync-shared.mjs dsh-contract-stance` copia o kit partilhado de `../_shared` para `src/shared/`; volte a executá-lo após cada alteração partilhada. O plugin é **guiado por dados**: `src/model.ts` declara a forma da tabela e os alias de coluna, o kit partilhado fornece o leitor e o motor de verificação, e o pacote de regras declara cada verificação.
 
-As imagens do README são geradas por [`scripts/gen-readme-assets.py`](scripts/gen-readme-assets.py) (Python + Pillow) em `docs/assets/dsh-contract-stance-flow-{light,dark}.svg`; o script pode ser executado novamente e os diagramas contêm apenas tokens de comandos e chaves de configuração, partilhados pelos cinco idiomas.
+As imagens do README são geradas por [`scripts/gen-readme-assets.py`](scripts/gen-readme-assets.py) (Pillow para o cabeçalho, SVG escrito à mão para a estrutura) em `docs/assets/dsh-contract-stance-hero-{zh,en}-{light,dark}.webp` e `docs/assets/dsh-contract-stance-flow-v5-{light,dark}.svg`; o script pode ser executado novamente e os diagramas contêm apenas tokens de comandos e chaves de configuração, partilhados pelos cinco idiomas.
 
 Topics: `deepseek-harness`, `dsh`, `dsh-plugin`, `cordis`, `contract`, `stance`
 

@@ -1,8 +1,8 @@
 <div align="center">
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="docs/assets/dsh-contract-stance-flow-dark.svg">
-  <img src="docs/assets/dsh-contract-stance-flow-light.svg" width="100%" alt="dsh-contract-stance कार्यप्रवाह: सामग्री → contract_stance टूल → नियम-पैक CS-001..CS-007 → रिपोर्ट (error/warn/info + skipped)">
+  <source media="(prefers-color-scheme: dark)" srcset="docs/assets/dsh-contract-stance-flow-v5-dark.svg">
+  <img src="docs/assets/dsh-contract-stance-flow-v5-light.svg" width="100%" alt="संरचना: बाईं ओर एक केवल-पढ़ने योग्य रजिस्टर पृष्ठ (हेडर और छह फ़ील्ड; धारा-पाठ वाला फ़ील्ड खाली है); दाईं ओर सात नियम, हर नियम के साथ वह फ़ील्ड जो वह पढ़ता है, जाँच-प्रकार और परिणाम; नीचे issues[] और skipped[] दोनों मार्ग markdown + reportJson में मिलते हैं">
 </picture>
 
 # dsh-contract-stance
@@ -316,7 +316,7 @@ pnpm pack
 
 `node ../scripts/sync-shared.mjs dsh-contract-stance` साझा किट `../_shared` से `src/shared/` में कॉपी करता है; हर साझा बदलाव के बाद इसे दोबारा चलाएँ। प्लगइन **डेटा-संचालित** है: `src/model.ts` तालिका का आकार और स्तंभ alias घोषित करता है, साझा किट पाठक और जाँच-इंजन देता है, और नियम-पैक हर जाँच घोषित करता है।
 
-README की छवियाँ [`scripts/gen-readme-assets.py`](scripts/gen-readme-assets.py) (Python + Pillow) से `docs/assets/dsh-contract-stance-flow-{light,dark}.svg` में बनती हैं; स्क्रिप्ट दोबारा चलाई जा सकती है और आरेखों में केवल कमांड और कॉन्फ़िगरेशन-कुंजी tokens हैं, जो पाँचों भाषाओं में साझा हैं।
+README की छवियाँ [`scripts/gen-readme-assets.py`](scripts/gen-readme-assets.py) (हेडर के लिए Pillow, संरचना के लिए हाथ से लिखा SVG) से `docs/assets/dsh-contract-stance-hero-{zh,en}-{light,dark}.webp` और `docs/assets/dsh-contract-stance-flow-v5-{light,dark}.svg` में बनती हैं; स्क्रिप्ट दोबारा चलाई जा सकती है और आरेखों में केवल कमांड और कॉन्फ़िगरेशन-कुंजी tokens हैं, जो पाँचों भाषाओं में साझा हैं।
 
 Topics: `deepseek-harness`, `dsh`, `dsh-plugin`, `cordis`, `contract`, `stance`
 

@@ -1,8 +1,8 @@
 <div align="center">
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="docs/assets/dsh-contract-stance-flow-dark.svg">
-  <img src="docs/assets/dsh-contract-stance-flow-light.svg" width="100%" alt="dsh-contract-stance pipeline: material → contract_stance tool → rule pack CS-001..CS-007 → report (error/warn/info + skipped)">
+  <source media="(prefers-color-scheme: dark)" srcset="docs/assets/dsh-contract-stance-hero-en-dark.webp">
+  <img src="docs/assets/dsh-contract-stance-hero-en-light.webp" width="100%" alt="dsh-contract-stance: one page of a clause-stance register; clause 8.2 has an empty clause-text cell, CS-001 points at row 1 / text, and the report is warn 1 with 2 skipped">
 </picture>
 
 # dsh-contract-stance
@@ -39,6 +39,11 @@ dsh plugin --profile <name> add dsh-contract-stance
 `dsh-contract-stance` reads one **contract clause-stance register** — the contract header plus one row per clause — and checks that register's own completeness and self-consistency: that each clause's text is recorded, that your stance comes from your own vocabulary, that the risk grade does too, that a must-have clause records both a fallback position and an owner, that clause numbers are unique, that the register names the contract and your side, and that no unreplaced placeholder survives in the clause text. It returns a line-by-line difference list; the material is read-only and stays as given.
 
 The plugin registers a single tool, `contract_stance`. Material is JSON or YAML, passed as either `file` or `material`.
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="docs/assets/dsh-contract-stance-flow-v5-dark.svg">
+  <img src="docs/assets/dsh-contract-stance-flow-v5-light.svg" width="100%" alt="Structure: on the left, one read-only register page (header plus six fields, the clause-text field empty); on the right, the seven rules annotated with the field they read, their check kind and their outcome; below, the two channels issues[] and skipped[] merge into markdown + reportJson, and skipped must not be read as no problem">
+</picture>
 
 ## Three-step setup
 
@@ -316,7 +321,7 @@ pnpm pack
 
 `node ../scripts/sync-shared.mjs dsh-contract-stance` copies the shared kit from `../_shared` into `src/shared/`; re-run it after every shared change. The plugin is **data-driven**: `src/model.ts` declares the table shape and column aliases, the shared kit supplies the reader and the check engine, and the rule pack declares every check.
 
-The README images are generated programmatically by [`scripts/gen-readme-assets.py`](scripts/gen-readme-assets.py) (Python + Pillow) into `docs/assets/dsh-contract-stance-flow-{light,dark}.svg`; the script is safe to re-run and the diagrams contain command/config-key tokens only, shared by all five languages.
+The README images are generated programmatically by [`scripts/gen-readme-assets.py`](scripts/gen-readme-assets.py) (Pillow for the hero, hand-written SVG for the structure) into `docs/assets/dsh-contract-stance-hero-{zh,en}-{light,dark}.webp` and `docs/assets/dsh-contract-stance-flow-v5-{light,dark}.svg`; the script is safe to re-run and the structure diagram contains command/config-key tokens only, shared by all five languages.
 
 Topics: `deepseek-harness`, `dsh`, `dsh-plugin`, `cordis`, `contract`, `stance`
 

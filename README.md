@@ -1,8 +1,8 @@
 <div align="center">
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="docs/assets/dsh-contract-stance-flow-dark.svg">
-  <img src="docs/assets/dsh-contract-stance-flow-light.svg" width="100%" alt="dsh-contract-stance 核对流水线：材料 → contract_stance 工具 → 规则库 CS-001..CS-007 → 报告（error/warn/info + skipped）">
+  <source media="(prefers-color-scheme: dark)" srcset="docs/assets/dsh-contract-stance-hero-zh-dark.webp">
+  <img src="docs/assets/dsh-contract-stance-hero-zh-light.webp" width="100%" alt="dsh-contract-stance：一页合同条款立场台账，第 8.2 条的条款原文栏为空，CS-001 指向「第 1 行 · 条款原文」，报告 warn 1 条、skipped 2 条">
 </picture>
 
 # dsh-contract-stance
@@ -39,6 +39,11 @@ dsh plugin --profile <name> add dsh-contract-stance
 `dsh-contract-stance` 读取一份**合同条款立场台账**——合同表头加每条条款一行——只核对这份台账自身的齐备与自洽：条款原文是否摘录、本方立场是否取自本机构口径、风险等级是否同样在册、必保条款是否写明退让底线与责任人、条款号是否唯一、表头是否声明合同与本方、条款原文是否残留未替换的占位符。它输出的是「哪一行、哪一栏、差什么」的差异清单；材料只读，原样保留。
 
 插件注册单一工具 `contract_stance`，材料用 JSON 或 YAML，`file` 与 `material` 二选一。
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="docs/assets/dsh-contract-stance-flow-v5-dark.svg">
+  <img src="docs/assets/dsh-contract-stance-flow-v5-light.svg" width="100%" alt="结构图：左侧是一页只读台账（表头 + 六个栏位，条款原文栏为空）；右侧边注是七条规则的「所读栏位 · 检查类型 · 结果」；底部 issues[] 与 skipped[] 两条通道汇入 markdown + reportJson，且 skipped 不得读作「没有问题」">
+</picture>
 
 ## 三步上手
 
@@ -309,7 +314,7 @@ pnpm pack
 
 `node ../scripts/sync-shared.mjs dsh-contract-stance` 把 `../_shared` 的共享件同步进 `src/shared/`；每次改动共享件后都要重跑。插件是**数据驱动**的：`src/model.ts` 声明表结构与列别名，共享包提供读取与检查引擎，规则库声明每一条检查。
 
-README 配图由 [`scripts/gen-readme-assets.py`](scripts/gen-readme-assets.py) 程序化生成（Python + Pillow），输出 `docs/assets/dsh-contract-stance-flow-{light,dark}.svg`；可重复执行，图内只含命令与配置键 token，五语共用。
+README 配图由 [`scripts/gen-readme-assets.py`](scripts/gen-readme-assets.py) 程序化生成（Python + Pillow 出 hero，手写 SVG 出结构图），输出 `docs/assets/dsh-contract-stance-hero-{zh,en}-{light,dark}.webp` 与 `docs/assets/dsh-contract-stance-flow-v5-{light,dark}.svg`；可重复执行，结构图内只含命令与配置键 token，五语共用。
 
 Topics：`deepseek-harness`, `dsh`, `dsh-plugin`, `cordis`, `contract`, `stance`
 

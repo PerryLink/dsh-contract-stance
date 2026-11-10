@@ -1,6 +1,6 @@
 # Results — CUAD public benchmark
 
-Generated: 2026-11-10T12:27:39.372Z
+Generated: 2026-11-10T12:36:45.253Z
 
 Dataset: **CUAD v1 (The Atticus Project)** — 510 contracts, 20910 expert QA annotations, 41 categories.
 Source: <https://github.com/The-Atticus-Project/cuad> (CUAD commit `67faa0e6023b04fcaae6cc09497ab00e5d63a2a2`) · License: **CC BY 4.0**.
@@ -95,7 +95,7 @@ On clean case `cuad-001` (Renewal Term), the default tool call produced 1 issue(
       "rule": "CS-008"
     },
     {
-      "reason": "材料中没有满足「riskLevel」条件的行，本条不适用",
+      "reason": "规则库配置的 check.kind「enumByField」不是本引擎支持的检查类型，本条不执行",
       "rule": "CS-009"
     },
     {
@@ -106,9 +106,9 @@ On clean case `cuad-001` (Renewal Term), the default tool call produced 1 issue(
   "execution": {
     "executed": 3,
     "manual": 0,
-    "skipped": 6,
+    "skipped": 5,
     "total": 9,
-    "unsupported": 0
+    "unsupported": 1
   }
 }
 ```

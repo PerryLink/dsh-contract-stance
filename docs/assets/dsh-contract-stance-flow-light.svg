@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="400" viewBox="0 0 1200 400" role="img" aria-label="dsh-contract-stance pipeline">
+<title>dsh-contract-stance pipeline</title>
+<rect width="1200" height="400" rx="18" fill="#ffffff"/>
+<text x="60" y="62" fill="#1f2328" font-family="ui-sans-serif,system-ui,sans-serif" font-size="30" font-weight="700">dsh-contract-stance</text>
+<text x="60" y="94" fill="#57606a" font-family="ui-monospace,monospace" font-size="16">contract_stance · rules/contract-stance.yaml · CS-001..CS-007</text>
+<line x1="60" y1="116" x2="1140" y2="116" stroke="#d0d7de"/>
+<rect x="70" y="150" width="220" height="96" rx="14" fill="#f6f8fa" stroke="#d0d7de" stroke-width="2"/>
+<text x="180" y="190" fill="#1f2328" text-anchor="middle" font-family="ui-monospace,monospace" font-size="16" font-weight="700">material</text>
+<text x="180" y="218" fill="#57606a" text-anchor="middle" font-family="ui-monospace,monospace" font-size="12">JSON | YAML</text>
+<path d="M296 198h43" stroke="#57606a" stroke-width="3"/>
+<path d="M337 191l10 7-10 7" fill="none" stroke="#57606a" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="345" y="150" width="220" height="96" rx="14" fill="#f6f8fa" stroke="#4B67B4" stroke-width="2"/>
+<text x="455" y="190" fill="#1f2328" text-anchor="middle" font-family="ui-monospace,monospace" font-size="16" font-weight="700">contract_stance</text>
+<text x="455" y="218" fill="#57606a" text-anchor="middle" font-family="ui-monospace,monospace" font-size="12">rules/contract-stance.yaml</text>
+<path d="M571 198h43" stroke="#57606a" stroke-width="3"/>
+<path d="M612 191l10 7-10 7" fill="none" stroke="#57606a" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="620" y="150" width="220" height="96" rx="14" fill="#f6f8fa" stroke="#bc4c00" stroke-width="2"/>
+<text x="730" y="190" fill="#1f2328" text-anchor="middle" font-family="ui-monospace,monospace" font-size="16" font-weight="700">CS-001..CS-007</text>
+<text x="730" y="218" fill="#57606a" text-anchor="middle" font-family="ui-monospace,monospace" font-size="12">direct | derived</text>
+<path d="M846 198h43" stroke="#57606a" stroke-width="3"/>
+<path d="M887 191l10 7-10 7" fill="none" stroke="#57606a" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="895" y="150" width="220" height="96" rx="14" fill="#f6f8fa" stroke="#16a34a" stroke-width="2"/>
+<text x="1005" y="190" fill="#1f2328" text-anchor="middle" font-family="ui-monospace,monospace" font-size="16" font-weight="700">report</text>
+<text x="1005" y="218" fill="#57606a" text-anchor="middle" font-family="ui-monospace,monospace" font-size="12">markdown + reportJson</text>
+<path d="M730 246v46" stroke="#4B67B4" stroke-width="2" stroke-dasharray="5 5"/>
+<path d="M1005 246v46" stroke="#4B67B4" stroke-width="2" stroke-dasharray="5 5"/>
+<rect x="345" y="292" width="690" height="52" rx="12" fill="#f6f8fa" stroke="#4B67B4" stroke-width="2"/>
+<text x="690" y="324" fill="#1f2328" text-anchor="middle" font-family="ui-monospace,monospace" font-size="14">skipped: CS-002 | CS-003 values: []</text>
+<text x="60" y="378" fill="#57606a" font-family="ui-monospace,monospace" font-size="13">excerpt: verbatim · kind: direct | derived-from-principle · severity: warn | info</text>
+</svg>

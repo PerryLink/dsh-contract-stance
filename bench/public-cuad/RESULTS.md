@@ -1,6 +1,6 @@
 # Results — CUAD public benchmark
 
-Generated: 2026-11-10T11:55:10.890Z
+Generated: 2026-11-10T11:55:21.332Z
 
 Dataset: **CUAD v1 (The Atticus Project)** — 510 contracts, 20910 expert QA annotations, 41 categories.
 Source: <https://github.com/The-Atticus-Project/cuad> · License: **CC BY 4.0**.

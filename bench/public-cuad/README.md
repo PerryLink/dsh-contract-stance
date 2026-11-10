@@ -14,11 +14,14 @@ finding, and they are recorded in `mapping.json`, `summary.json` and
 ## Data and license
 
 - **Dataset:** CUAD v1, The Atticus Project — <https://github.com/The-Atticus-Project/cuad>
+- **Pinned revision:** `67faa0e6023b04fcaae6cc09497ab00e5d63a2a2` (2021-10-21). `fetch.mjs` downloads the archive from that commit, not a moving branch.
 - **Archive:** `data.zip` → `CUADv1.json` (510 contracts, 41 expert clause
   categories, 20,910 QA annotations).
 - **License:** **CC BY 4.0** — <https://creativecommons.org/licenses/by/4.0/>.
   The dataset is attributed to Hendrycks, Burns, Chen and Ball, *CUAD: An
   Expert-Annotated NLP Dataset for Legal Contract Review* (NeurIPS 2021).
+  The benchmark code itself is part of this Apache-2.0 repository; the CUAD
+  data remains CC BY 4.0.
 - **Not committed:** `data.zip` and `CUADv1.json` are downloaded into `.data/`,
   which is gitignored. `cases.json` (which contains clause excerpts) is also
   gitignored. If you regenerate it, CC BY 4.0 and the attribution above apply.

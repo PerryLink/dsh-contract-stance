@@ -1,0 +1,7 @@
+{
+  "ruleId": "CS-008",
+  "pairs": [
+    { "name": "expected-state", "material": "CS-008-compliant.json", "expect": { "ruleId": "CS-008", "count": 0 } },
+    { "name": "difference-present", "material": "CS-008-unsafe.json", "expect": { "ruleId": "CS-008", "count": 1 } }
+  ]
+}

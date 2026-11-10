@@ -37,8 +37,8 @@ describe('presence row coverage', () => {
       header: { text: '' },
       columns: ['text'],
       rows: [
-        { row: 1, fields: { text: 'present' }, raw: { text: 'present' } },
-        { row: 2, fields: {}, raw: {} },
+        { row: 1, fields: { text: 'present' } },
+        { row: 2, fields: {} },
       ],
       warnings: [],
     }

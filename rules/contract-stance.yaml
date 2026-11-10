@@ -128,6 +128,47 @@ rules:
       判定取值由 conditionValues 配置。
       本条只核对底线与责任人是否填写，**不判断该底线是否合理**。
 
+  - id: CS-008
+    title: 退让底线不得严于本方立场
+    severity: info
+    basis:
+      document: 本机构合同管理办法（内部规则）
+      number: 本次未取得公开条号
+      clause: 立场等级与退让底线等级
+      excerpt: 本机构合同管理办法要求退让底线不得严于本方立场；立场等级与底线等级的具体口径由本机构配置，本插件不硬编码。
+      kind: institutional-configuration
+      source: https://www.gov.cn/zhengce/
+    params:
+      check:
+        kind: fieldComparison
+        leftField: fallbackRank
+        rightField: stanceRank
+        relation: lte
+    note: >-
+      ⚠️ 本条只比较台账自己填写的两个**等级数值**：立场等级越高越严格，退让底线等级
+      不应高于立场等级（lte）。等级口径由本机构配置；未提供任一等级时本条进 skipped。
+      本条不判断立场或底线是否合理。
+
+  - id: CS-009
+    title: 高风险条款应写明风险说明
+    severity: info
+    basis:
+      document: 本机构合同管理办法（内部规则）
+      number: 本次未取得公开条号
+      clause: 高风险条款的风险说明
+      excerpt: 本机构合同管理办法要求高风险条款必须写明风险说明；高风险取值由本机构配置，本插件不硬编码全部分档。
+      kind: institutional-configuration
+      source: https://www.gov.cn/zhengce/
+    params:
+      check:
+        kind: conditionalPresence
+        conditionField: riskLevel
+        conditionValues: ["高", "high", "H", "3", "重大"]
+        requiredFields: ["riskNote"]
+    note: >-
+      本条只核对高风险行是否填写风险说明；它不判断风险是否真实存在。
+      conditionValues 是保守默认值，机构可替换为自己的风险分档。
+
   - id: CS-005
     title: 条款号不应在台账内重复
     severity: warn

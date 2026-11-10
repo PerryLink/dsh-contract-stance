@@ -20,6 +20,8 @@ const COLUMNS = {
   topic: ['条款主题', '事项', '主题', 'topic'],
   text: ['条款原文', '原文', '条款内容', 'text'],
   stance: ['本方立场', '立场', '接受态度', 'stance'],
+  stanceRank: ['立场等级', '立场排序', '立场强度', 'stanceRank'],
+  fallbackRank: ['底线等级', '退让等级', '退让底线等级', 'fallbackRank'],
   riskLevel: ['风险等级', '风险级别', '等级', 'riskLevel'],
   riskNote: ['风险说明', '风险点', '影响', 'riskNote'],
   fallback: ['退让底线', '备选方案', '替代方案', 'fallback'],

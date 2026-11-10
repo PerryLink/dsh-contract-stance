@@ -1,0 +1,677 @@
+{
+  "dataset": "CUAD v1 (The Atticus Project)",
+  "source": "https://github.com/The-Atticus-Project/cuad",
+  "license": "CC BY 4.0",
+  "note": "Mapping is deliberately conservative: a field is mapped only when CUAD carries a semantically equivalent label. No stance, risk rating, fallback, must-have flag, owner, clause number or own-party designation is synthesized.",
+  "fields": {
+    "clauseNo": {
+      "status": "not-provided",
+      "cuad": null,
+      "rules": [
+        "CS-005"
+      ],
+      "reason": "CUAD has no clause numbers. qa ids are annotation ids (contract title + category), not clause numbers; using them would fake uniqueness."
+    },
+    "topic": {
+      "status": "mapped",
+      "cuad": "CUAD clause category",
+      "rules": [],
+      "reason": "The 41 expert categories are clause subjects; mapped 1:1 to 条款主题 for the 36 clause-like categories."
+    },
+    "text": {
+      "status": "mapped",
+      "cuad": "CUAD answer span (expert annotation)",
+      "rules": [
+        "CS-001",
+        "CS-007"
+      ],
+      "reason": "Each answer span is a verbatim excerpt from the contract. It is whitespace-collapsed, not rewritten."
+    },
+    "stance": {
+      "status": "not-provided",
+      "cuad": null,
+      "rules": [
+        "CS-002"
+      ],
+      "reason": "CUAD annotates clause presence/type, never a negotiation stance or acceptance attitude; CS-002 is excluded."
+    },
+    "riskLevel": {
+      "status": "not-provided",
+      "cuad": null,
+      "rules": [
+        "CS-003"
+      ],
+      "reason": "CUAD has no risk rating (high/medium/low). A category such as Uncapped Liability is a clause type, not a risk level; CS-003 is excluded."
+    },
+    "riskNote": {
+      "status": "not-provided",
+      "cuad": null,
+      "rules": [],
+      "reason": "No CUAD equivalent; no rule consumes it."
+    },
+    "fallback": {
+      "status": "not-provided",
+      "cuad": null,
+      "rules": [
+        "CS-004"
+      ],
+      "reason": "CUAD has no negotiation fallback/bottom line; CS-004 is excluded."
+    },
+    "mustHave": {
+      "status": "not-provided",
+      "cuad": null,
+      "rules": [
+        "CS-004"
+      ],
+      "reason": "CUAD does not mark any clause as must-have/必保; CS-004 is excluded."
+    },
+    "owner": {
+      "status": "not-provided",
+      "cuad": null,
+      "rules": [
+        "CS-004"
+      ],
+      "reason": "CUAD has no negotiation owner; CS-004 is excluded."
+    },
+    "note": {
+      "status": "not-provided",
+      "cuad": null,
+      "rules": [],
+      "reason": "No CUAD equivalent; no rule consumes it."
+    }
+  },
+  "headerFields": {
+    "contractNo": {
+      "status": "not-provided",
+      "cuad": null,
+      "rules": [],
+      "reason": "CUAD has no contract number field."
+    },
+    "contractName": {
+      "status": "mapped",
+      "cuad": "Document Name answer, else contract title",
+      "rules": [
+        "CS-006"
+      ],
+      "reason": "Mapped to the header; CS-006 still needs party, so only this half is available."
+    },
+    "party": {
+      "status": "not-provided",
+      "cuad": null,
+      "rules": [
+        "CS-006"
+      ],
+      "reason": "CUAD Parties is all signatories, not 本方; CS-006 is excluded."
+    },
+    "counterparty": {
+      "status": "not-provided",
+      "cuad": null,
+      "rules": [],
+      "reason": "CUAD does not label which signatory is the counterparty; no rule consumes it."
+    },
+    "version": {
+      "status": "not-provided",
+      "cuad": null,
+      "rules": [],
+      "reason": "CUAD has no negotiation-round version."
+    },
+    "checkedAt": {
+      "status": "not-provided",
+      "cuad": null,
+      "rules": [],
+      "reason": "A run timestamp is not a dataset fact; no rule consumes it."
+    }
+  },
+  "categories": [
+    {
+      "category": "Document Name",
+      "scope": "header",
+      "pluginFields": [
+        "contractName"
+      ],
+      "status": "mapped",
+      "rules": [
+        "CS-006"
+      ],
+      "note": "CUAD Document Name answer -> ledger header contractName. CS-006 is excluded overall because its second field, party (本方), is not provided by CUAD."
+    },
+    {
+      "category": "Parties",
+      "scope": "header",
+      "pluginFields": [],
+      "status": "not-provided",
+      "rules": [
+        "CS-006"
+      ],
+      "note": "CUAD Parties is the set of all signatories; it never says which side is 本方 (our side). Writing it into party would fake the own-party field, so party is not provided and CS-006 is excluded."
+    },
+    {
+      "category": "Agreement Date",
+      "scope": "none",
+      "pluginFields": [],
+      "status": "not-provided",
+      "rules": [],
+      "note": "The ledger has no date column and no rule consumes a date; not mapped."
+    },
+    {
+      "category": "Effective Date",
+      "scope": "none",
+      "pluginFields": [],
+      "status": "not-provided",
+      "rules": [],
+      "note": "The ledger has no date column and no rule consumes a date; not mapped."
+    },
+    {
+      "category": "Expiration Date",
+      "scope": "none",
+      "pluginFields": [],
+      "status": "not-provided",
+      "rules": [],
+      "note": "The ledger has no date column and no rule consumes a date; not mapped."
+    },
+    {
+      "category": "Renewal Term",
+      "scope": "row",
+      "pluginFields": [
+        "topic",
+        "text"
+      ],
+      "status": "mapped",
+      "rules": [
+        "CS-001",
+        "CS-007"
+      ],
+      "note": "CUAD category -> 条款主题; the expert-annotated answer span (whitespace-collapsed) -> 条款原文. Only the text-presence and template-placeholder rules consume these fields."
+    },
+    {
+      "category": "Notice Period To Terminate Renewal",
+      "scope": "row",
+      "pluginFields": [
+        "topic",
+        "text"
+      ],
+      "status": "mapped",
+      "rules": [
+        "CS-001",
+        "CS-007"
+      ],
+      "note": "CUAD category -> 条款主题; the expert-annotated answer span (whitespace-collapsed) -> 条款原文. Only the text-presence and template-placeholder rules consume these fields."
+    },
+    {
+      "category": "Governing Law",
+      "scope": "row",
+      "pluginFields": [
+        "topic",
+        "text"
+      ],
+      "status": "mapped",
+      "rules": [
+        "CS-001",
+        "CS-007"
+      ],
+      "note": "CUAD category -> 条款主题; the expert-annotated answer span (whitespace-collapsed) -> 条款原文. Only the text-presence and template-placeholder rules consume these fields."
+    },
+    {
+      "category": "Most Favored Nation",
+      "scope": "row",
+      "pluginFields": [
+        "topic",
+        "text"
+      ],
+      "status": "mapped",
+      "rules": [
+        "CS-001",
+        "CS-007"
+      ],
+      "note": "CUAD category -> 条款主题; the expert-annotated answer span (whitespace-collapsed) -> 条款原文. Only the text-presence and template-placeholder rules consume these fields."
+    },
+    {
+      "category": "Non-Compete",
+      "scope": "row",
+      "pluginFields": [
+        "topic",
+        "text"
+      ],
+      "status": "mapped",
+      "rules": [
+        "CS-001",
+        "CS-007"
+      ],
+      "note": "CUAD category -> 条款主题; the expert-annotated answer span (whitespace-collapsed) -> 条款原文. Only the text-presence and template-placeholder rules consume these fields."
+    },
+    {
+      "category": "Exclusivity",
+      "scope": "row",
+      "pluginFields": [
+        "topic",
+        "text"
+      ],
+      "status": "mapped",
+      "rules": [
+        "CS-001",
+        "CS-007"
+      ],
+      "note": "CUAD category -> 条款主题; the expert-annotated answer span (whitespace-collapsed) -> 条款原文. Only the text-presence and template-placeholder rules consume these fields."
+    },
+    {
+      "category": "No-Solicit Of Customers",
+      "scope": "row",
+      "pluginFields": [
+        "topic",
+        "text"
+      ],
+      "status": "mapped",
+      "rules": [
+        "CS-001",
+        "CS-007"
+      ],
+      "note": "CUAD category -> 条款主题; the expert-annotated answer span (whitespace-collapsed) -> 条款原文. Only the text-presence and template-placeholder rules consume these fields."
+    },
+    {
+      "category": "Competitive Restriction Exception",
+      "scope": "row",
+      "pluginFields": [
+        "topic",
+        "text"
+      ],
+      "status": "mapped",
+      "rules": [
+        "CS-001",
+        "CS-007"
+      ],
+      "note": "CUAD category -> 条款主题; the expert-annotated answer span (whitespace-collapsed) -> 条款原文. Only the text-presence and template-placeholder rules consume these fields."
+    },
+    {
+      "category": "No-Solicit Of Employees",
+      "scope": "row",
+      "pluginFields": [
+        "topic",
+        "text"
+      ],
+      "status": "mapped",
+      "rules": [
+        "CS-001",
+        "CS-007"
+      ],
+      "note": "CUAD category -> 条款主题; the expert-annotated answer span (whitespace-collapsed) -> 条款原文. Only the text-presence and template-placeholder rules consume these fields."
+    },
+    {
+      "category": "Non-Disparagement",
+      "scope": "row",
+      "pluginFields": [
+        "topic",
+        "text"
+      ],
+      "status": "mapped",
+      "rules": [
+        "CS-001",
+        "CS-007"
+      ],
+      "note": "CUAD category -> 条款主题; the expert-annotated answer span (whitespace-collapsed) -> 条款原文. Only the text-presence and template-placeholder rules consume these fields."
+    },
+    {
+      "category": "Termination For Convenience",
+      "scope": "row",
+      "pluginFields": [
+        "topic",
+        "text"
+      ],
+      "status": "mapped",
+      "rules": [
+        "CS-001",
+        "CS-007"
+      ],
+      "note": "CUAD category -> 条款主题; the expert-annotated answer span (whitespace-collapsed) -> 条款原文. Only the text-presence and template-placeholder rules consume these fields."
+    },
+    {
+      "category": "Rofr/Rofo/Rofn",
+      "scope": "row",
+      "pluginFields": [
+        "topic",
+        "text"
+      ],
+      "status": "mapped",
+      "rules": [
+        "CS-001",
+        "CS-007"
+      ],
+      "note": "CUAD category -> 条款主题; the expert-annotated answer span (whitespace-collapsed) -> 条款原文. Only the text-presence and template-placeholder rules consume these fields."
+    },
+    {
+      "category": "Change Of Control",
+      "scope": "row",
+      "pluginFields": [
+        "topic",
+        "text"
+      ],
+      "status": "mapped",
+      "rules": [
+        "CS-001",
+        "CS-007"
+      ],
+      "note": "CUAD category -> 条款主题; the expert-annotated answer span (whitespace-collapsed) -> 条款原文. Only the text-presence and template-placeholder rules consume these fields."
+    },
+    {
+      "category": "Anti-Assignment",
+      "scope": "row",
+      "pluginFields": [
+        "topic",
+        "text"
+      ],
+      "status": "mapped",
+      "rules": [
+        "CS-001",
+        "CS-007"
+      ],
+      "note": "CUAD category -> 条款主题; the expert-annotated answer span (whitespace-collapsed) -> 条款原文. Only the text-presence and template-placeholder rules consume these fields."
+    },
+    {
+      "category": "Revenue/Profit Sharing",
+      "scope": "row",
+      "pluginFields": [
+        "topic",
+        "text"
+      ],
+      "status": "mapped",
+      "rules": [
+        "CS-001",
+        "CS-007"
+      ],
+      "note": "CUAD category -> 条款主题; the expert-annotated answer span (whitespace-collapsed) -> 条款原文. Only the text-presence and template-placeholder rules consume these fields."
+    },
+    {
+      "category": "Price Restrictions",
+      "scope": "row",
+      "pluginFields": [
+        "topic",
+        "text"
+      ],
+      "status": "mapped",
+      "rules": [
+        "CS-001",
+        "CS-007"
+      ],
+      "note": "CUAD category -> 条款主题; the expert-annotated answer span (whitespace-collapsed) -> 条款原文. Only the text-presence and template-placeholder rules consume these fields."
+    },
+    {
+      "category": "Minimum Commitment",
+      "scope": "row",
+      "pluginFields": [
+        "topic",
+        "text"
+      ],
+      "status": "mapped",
+      "rules": [
+        "CS-001",
+        "CS-007"
+      ],
+      "note": "CUAD category -> 条款主题; the expert-annotated answer span (whitespace-collapsed) -> 条款原文. Only the text-presence and template-placeholder rules consume these fields."
+    },
+    {
+      "category": "Volume Restriction",
+      "scope": "row",
+      "pluginFields": [
+        "topic",
+        "text"
+      ],
+      "status": "mapped",
+      "rules": [
+        "CS-001",
+        "CS-007"
+      ],
+      "note": "CUAD category -> 条款主题; the expert-annotated answer span (whitespace-collapsed) -> 条款原文. Only the text-presence and template-placeholder rules consume these fields."
+    },
+    {
+      "category": "Ip Ownership Assignment",
+      "scope": "row",
+      "pluginFields": [
+        "topic",
+        "text"
+      ],
+      "status": "mapped",
+      "rules": [
+        "CS-001",
+        "CS-007"
+      ],
+      "note": "CUAD category -> 条款主题; the expert-annotated answer span (whitespace-collapsed) -> 条款原文. Only the text-presence and template-placeholder rules consume these fields."
+    },
+    {
+      "category": "Joint Ip Ownership",
+      "scope": "row",
+      "pluginFields": [
+        "topic",
+        "text"
+      ],
+      "status": "mapped",
+      "rules": [
+        "CS-001",
+        "CS-007"
+      ],
+      "note": "CUAD category -> 条款主题; the expert-annotated answer span (whitespace-collapsed) -> 条款原文. Only the text-presence and template-placeholder rules consume these fields."
+    },
+    {
+      "category": "License Grant",
+      "scope": "row",
+      "pluginFields": [
+        "topic",
+        "text"
+      ],
+      "status": "mapped",
+      "rules": [
+        "CS-001",
+        "CS-007"
+      ],
+      "note": "CUAD category -> 条款主题; the expert-annotated answer span (whitespace-collapsed) -> 条款原文. Only the text-presence and template-placeholder rules consume these fields."
+    },
+    {
+      "category": "Non-Transferable License",
+      "scope": "row",
+      "pluginFields": [
+        "topic",
+        "text"
+      ],
+      "status": "mapped",
+      "rules": [
+        "CS-001",
+        "CS-007"
+      ],
+      "note": "CUAD category -> 条款主题; the expert-annotated answer span (whitespace-collapsed) -> 条款原文. Only the text-presence and template-placeholder rules consume these fields."
+    },
+    {
+      "category": "Affiliate License-Licensor",
+      "scope": "row",
+      "pluginFields": [
+        "topic",
+        "text"
+      ],
+      "status": "mapped",
+      "rules": [
+        "CS-001",
+        "CS-007"
+      ],
+      "note": "CUAD category -> 条款主题; the expert-annotated answer span (whitespace-collapsed) -> 条款原文. Only the text-presence and template-placeholder rules consume these fields."
+    },
+    {
+      "category": "Affiliate License-Licensee",
+      "scope": "row",
+      "pluginFields": [
+        "topic",
+        "text"
+      ],
+      "status": "mapped",
+      "rules": [
+        "CS-001",
+        "CS-007"
+      ],
+      "note": "CUAD category -> 条款主题; the expert-annotated answer span (whitespace-collapsed) -> 条款原文. Only the text-presence and template-placeholder rules consume these fields."
+    },
+    {
+      "category": "Unlimited/All-You-Can-Eat-License",
+      "scope": "row",
+      "pluginFields": [
+        "topic",
+        "text"
+      ],
+      "status": "mapped",
+      "rules": [
+        "CS-001",
+        "CS-007"
+      ],
+      "note": "CUAD category -> 条款主题; the expert-annotated answer span (whitespace-collapsed) -> 条款原文. Only the text-presence and template-placeholder rules consume these fields."
+    },
+    {
+      "category": "Irrevocable Or Perpetual License",
+      "scope": "row",
+      "pluginFields": [
+        "topic",
+        "text"
+      ],
+      "status": "mapped",
+      "rules": [
+        "CS-001",
+        "CS-007"
+      ],
+      "note": "CUAD category -> 条款主题; the expert-annotated answer span (whitespace-collapsed) -> 条款原文. Only the text-presence and template-placeholder rules consume these fields."
+    },
+    {
+      "category": "Source Code Escrow",
+      "scope": "row",
+      "pluginFields": [
+        "topic",
+        "text"
+      ],
+      "status": "mapped",
+      "rules": [
+        "CS-001",
+        "CS-007"
+      ],
+      "note": "CUAD category -> 条款主题; the expert-annotated answer span (whitespace-collapsed) -> 条款原文. Only the text-presence and template-placeholder rules consume these fields."
+    },
+    {
+      "category": "Post-Termination Services",
+      "scope": "row",
+      "pluginFields": [
+        "topic",
+        "text"
+      ],
+      "status": "mapped",
+      "rules": [
+        "CS-001",
+        "CS-007"
+      ],
+      "note": "CUAD category -> 条款主题; the expert-annotated answer span (whitespace-collapsed) -> 条款原文. Only the text-presence and template-placeholder rules consume these fields."
+    },
+    {
+      "category": "Audit Rights",
+      "scope": "row",
+      "pluginFields": [
+        "topic",
+        "text"
+      ],
+      "status": "mapped",
+      "rules": [
+        "CS-001",
+        "CS-007"
+      ],
+      "note": "CUAD category -> 条款主题; the expert-annotated answer span (whitespace-collapsed) -> 条款原文. Only the text-presence and template-placeholder rules consume these fields."
+    },
+    {
+      "category": "Uncapped Liability",
+      "scope": "row",
+      "pluginFields": [
+        "topic",
+        "text"
+      ],
+      "status": "mapped",
+      "rules": [
+        "CS-001",
+        "CS-007"
+      ],
+      "note": "CUAD category -> 条款主题; the expert-annotated answer span (whitespace-collapsed) -> 条款原文. Only the text-presence and template-placeholder rules consume these fields."
+    },
+    {
+      "category": "Cap On Liability",
+      "scope": "row",
+      "pluginFields": [
+        "topic",
+        "text"
+      ],
+      "status": "mapped",
+      "rules": [
+        "CS-001",
+        "CS-007"
+      ],
+      "note": "CUAD category -> 条款主题; the expert-annotated answer span (whitespace-collapsed) -> 条款原文. Only the text-presence and template-placeholder rules consume these fields."
+    },
+    {
+      "category": "Liquidated Damages",
+      "scope": "row",
+      "pluginFields": [
+        "topic",
+        "text"
+      ],
+      "status": "mapped",
+      "rules": [
+        "CS-001",
+        "CS-007"
+      ],
+      "note": "CUAD category -> 条款主题; the expert-annotated answer span (whitespace-collapsed) -> 条款原文. Only the text-presence and template-placeholder rules consume these fields."
+    },
+    {
+      "category": "Warranty Duration",
+      "scope": "row",
+      "pluginFields": [
+        "topic",
+        "text"
+      ],
+      "status": "mapped",
+      "rules": [
+        "CS-001",
+        "CS-007"
+      ],
+      "note": "CUAD category -> 条款主题; the expert-annotated answer span (whitespace-collapsed) -> 条款原文. Only the text-presence and template-placeholder rules consume these fields."
+    },
+    {
+      "category": "Insurance",
+      "scope": "row",
+      "pluginFields": [
+        "topic",
+        "text"
+      ],
+      "status": "mapped",
+      "rules": [
+        "CS-001",
+        "CS-007"
+      ],
+      "note": "CUAD category -> 条款主题; the expert-annotated answer span (whitespace-collapsed) -> 条款原文. Only the text-presence and template-placeholder rules consume these fields."
+    },
+    {
+      "category": "Covenant Not To Sue",
+      "scope": "row",
+      "pluginFields": [
+        "topic",
+        "text"
+      ],
+      "status": "mapped",
+      "rules": [
+        "CS-001",
+        "CS-007"
+      ],
+      "note": "CUAD category -> 条款主题; the expert-annotated answer span (whitespace-collapsed) -> 条款原文. Only the text-presence and template-placeholder rules consume these fields."
+    },
+    {
+      "category": "Third Party Beneficiary",
+      "scope": "row",
+      "pluginFields": [
+        "topic",
+        "text"
+      ],
+      "status": "mapped",
+      "rules": [
+        "CS-001",
+        "CS-007"
+      ],
+      "note": "CUAD category -> 条款主题; the expert-annotated answer span (whitespace-collapsed) -> 条款原文. Only the text-presence and template-placeholder rules consume these fields."
+    }
+  ]
+}

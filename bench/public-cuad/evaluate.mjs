@@ -261,7 +261,77 @@ for (const spec of controlSpecs) {
   })
 }
 
+/**
+ * Boundary probes are synthetic ledgers, not CUAD rows. They are not part of
+ * the P/R score; they expose how the presence engine treats a row that does not
+ * carry the text column at all, which is a real coverage question for a ledger.
+ */
+const boundaryProbes = []
+{
+  const probe = {
+    id: 'row-omits-text-key',
+    label: 'one row omits the 条款原文 key while another row carries it',
+    expected: 'CS-001 should report row 2: every clause must quote its text.',
+    material: {
+      contractName: cases[0].ledger.contractName,
+      rows: [
+        structuredClone(cases[0].ledger.rows[0]),
+        { 条款主题: 'Another clause in the same ledger' },
+      ],
+    },
+    only: ['CS-001'],
+  }
+  const report = await execute(probe.material, probe.only)
+  const targeted = report.issues.filter((issue) => probe.only.includes(issue.ruleId))
+  boundaryProbes.push({
+    id: probe.id,
+    label: probe.label,
+    expected: probe.expected,
+    issueCount: targeted.length,
+    issues: targeted.map((issue) => ({ rule: issue.ruleId, found: issue.found })),
+    skipped: report.skipped,
+    assessment:
+      targeted.length === 0
+        ? 'gap: row 2 is not covered because the presence engine only holds rows that carry the column to the check'
+        : 'detected',
+  })
+}
+{
+  const probe = {
+    id: 'column-absent',
+    label: 'the 条款原文 column is absent from the whole ledger',
+    expected: 'CS-001 should skip with an explicit reason, not silently pass.',
+    material: {
+      contractName: cases[0].ledger.contractName,
+      rows: [{ 条款主题: 'A clause with no text column' }],
+    },
+    only: ['CS-001'],
+  }
+  const report = await execute(probe.material, probe.only)
+  const targeted = report.issues.filter((issue) => probe.only.includes(issue.ruleId))
+  boundaryProbes.push({
+    id: probe.id,
+    label: probe.label,
+    expected: probe.expected,
+    issueCount: targeted.length,
+    issues: targeted.map((issue) => ({ rule: issue.ruleId, found: issue.found })),
+    skipped: report.skipped,
+    assessment:
+      targeted.length === 0
+        ? 'correctly skipped: the rule is not applicable, and the skip reason is reported'
+        : 'unexpected finding for an absent column',
+  })
+}
+
 const categoriesUsed = [...new Set(cases.map((item) => item.category))]
+const labels = {
+  cleanCases: cases.length,
+  injected: scoredRules.map((row) => ({ rule: row.rule, label: row.mutation.label, count: row.positives })),
+  excludedRules: excludedRules.map((row) => row.rule),
+  scoredRules: scoredRules.map((row) => row.rule),
+  contradictionProbes: controls.map((row) => ({ id: row.id, label: row.label, scored: false })),
+  boundaryProbes: boundaryProbes.map((row) => ({ id: row.id, label: row.label, scored: false, assessment: row.assessment })),
+}
 const summary = {
   benchmark: 'public-cuad',
   title: 'CUAD -> dsh-contract-stance ledger end-to-end benchmark',
@@ -289,10 +359,12 @@ const summary = {
     rowCategories: categoriesUsed.length,
     expectedEveryRule: 'each case is a clean base for CS-001 and CS-007',
   },
+  labels,
   scoredRules,
   overall,
   excludedRules,
   controls,
+  boundaryProbes,
   fullPackRun,
   mapping: {
     fields: casesDocument.fields,
@@ -314,6 +386,7 @@ const summary = {
     'The full-pack run on the CUAD ledger reports CS-006 missing party. That is a true statement about the adapted ledger (party is not provided), not a false positive of a scored rule.',
     'cases.json and .data/ are gitignored; no contract text is committed. CUAD is CC BY 4.0 and attribution is in README.md.',
     'The tool\'s only argument collapses unselected rules into one skipped entry; evaluation filters issues by ruleId. This is a reporting detail, not a scoring shortcut.',
+    'Known gap (boundary probe): CS-001 does not report a row that omits the 条款原文 key entirely while another row carries the column; the engine only holds rows that carry the column to the presence check. A row with an explicit blank string is reported correctly and is the scored positive.',
   ],
 }
 
@@ -354,6 +427,15 @@ for (const row of excludedRules) {
 lines.push('')
 lines.push('The literal string “not provided” is **never** written into a ledger cell; a non-empty sentinel would be treated as a filled value and could fake a pass. The fields are omitted instead, and the dependent rules are excluded from the score. See `mapping.json` for the 41-category, field-by-field decision table.')
 lines.push('')
+lines.push('## All rules at a glance')
+lines.push('')
+lines.push('| rule | status | precision | recall |')
+lines.push('|---|---|---:|---:|')
+for (const row of scoredRules) lines.push(`| ${row.rule} | scored | ${fmt(row.precision)} | ${fmt(row.recall)} |`)
+for (const row of excludedRules) lines.push(`| ${row.rule} | ${row.status} | n/a | n/a |`)
+lines.push('')
+lines.push('Full-pack observed behaviour for the excluded rules is in the table above; none of them is counted as a pass or a fail in the P/R numbers.')
+lines.push('')
 lines.push('## Contradiction probes (not scored)')
 lines.push('')
 lines.push('| probe | rules invoked | expected | findings |')
@@ -363,6 +445,16 @@ for (const row of controls) {
 }
 lines.push('')
 lines.push('Two requested contradiction classes — stance vs fallback bottom line, and risk level vs clause — are **not implemented by this rule pack**. The plugin has seven rules; none compares those fields. The probes document that absence honestly instead of counting a zero as a missed detection.')
+lines.push('')
+lines.push('## Boundary probes (not scored)')
+lines.push('')
+lines.push('| probe | expected | findings | assessment |')
+lines.push('|---|---|---:|---|')
+for (const row of boundaryProbes) {
+  lines.push(`| ${row.label} | ${row.expected} | ${row.issueCount} | ${row.assessment} |`)
+}
+lines.push('')
+lines.push('The second boundary probe is the correct behaviour: when the text column is absent from the whole ledger, the rule skips with a reason and the report does not silently read as a pass. The first is a real coverage gap: a row that omits the field key while a sibling row carries it is not covered, so the plugin can miss a missing clause quotation. This is reported as a limitation, not folded into the P/R numbers.')
 lines.push('')
 lines.push('## Full-pack evidence')
 lines.push('')

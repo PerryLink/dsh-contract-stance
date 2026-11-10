@@ -3,6 +3,10 @@
   "source": "https://github.com/The-Atticus-Project/cuad",
   "license": "CC BY 4.0",
   "note": "Mapping is deliberately conservative: a field is mapped only when CUAD carries a semantically equivalent label. No stance, risk rating, fallback, must-have flag, owner, clause number or own-party designation is synthesized.",
+  "notProvidedPolicy": {
+    "label": "not provided",
+    "meaning": "The field is omitted from the ledger. The literal string 'not provided' is never written into a cell: the engine treats any non-empty cell as filled, so a sentinel would fake a pass. The dependent rule is excluded from the score and its real skip reason is reported."
+  },
   "fields": {
     "clauseNo": {
       "status": "not-provided",

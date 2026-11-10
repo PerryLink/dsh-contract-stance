@@ -1,6 +1,6 @@
 # Results — CUAD public benchmark
 
-Generated: 2026-11-10T11:52:28.363Z
+Generated: 2026-11-10T11:55:10.890Z
 
 Dataset: **CUAD v1 (The Atticus Project)** — 510 contracts, 20910 expert QA annotations, 41 categories.
 Source: <https://github.com/The-Atticus-Project/cuad> · License: **CC BY 4.0**.
@@ -30,6 +30,20 @@ The positives are one-defect clones: CS-001 blanks the real answer span; CS-007 
 
 The literal string “not provided” is **never** written into a ledger cell; a non-empty sentinel would be treated as a filled value and could fake a pass. The fields are omitted instead, and the dependent rules are excluded from the score. See `mapping.json` for the 41-category, field-by-field decision table.
 
+## All rules at a glance
+
+| rule | status | precision | recall |
+|---|---|---:|---:|
+| CS-001 | scored | 1.000 | 1.000 |
+| CS-007 | scored | 1.000 | 1.000 |
+| CS-002 | excluded (not CUAD-groundable) | n/a | n/a |
+| CS-003 | excluded (not CUAD-groundable) | n/a | n/a |
+| CS-004 | excluded (not CUAD-groundable) | n/a | n/a |
+| CS-005 | excluded (not CUAD-groundable) | n/a | n/a |
+| CS-006 | excluded (contractName maps; party does not) | n/a | n/a |
+
+Full-pack observed behaviour for the excluded rules is in the table above; none of them is counted as a pass or a fail in the P/R numbers.
+
 ## Contradiction probes (not scored)
 
 | probe | rules invoked | expected | findings |
@@ -40,6 +54,15 @@ The literal string “not provided” is **never** written into a ledger cell; a
 | missing required field: contractName | CS-006 | CS-006 fires, but CS-006 is excluded from the CUAD score because party is not provided either. | 1 |
 
 Two requested contradiction classes — stance vs fallback bottom line, and risk level vs clause — are **not implemented by this rule pack**. The plugin has seven rules; none compares those fields. The probes document that absence honestly instead of counting a zero as a missed detection.
+
+## Boundary probes (not scored)
+
+| probe | expected | findings | assessment |
+|---|---|---:|---|
+| one row omits the 条款原文 key while another row carries it | CS-001 should report row 2: every clause must quote its text. | 0 | gap: row 2 is not covered because the presence engine only holds rows that carry the column to the check |
+| the 条款原文 column is absent from the whole ledger | CS-001 should skip with an explicit reason, not silently pass. | 0 | correctly skipped: the rule is not applicable, and the skip reason is reported |
+
+The second boundary probe is the correct behaviour: when the text column is absent from the whole ledger, the rule skips with a reason and the report does not silently read as a pass. The first is a real coverage gap: a row that omits the field key while a sibling row carries it is not covered, so the plugin can miss a missing clause quotation. This is reported as a limitation, not folded into the P/R numbers.
 
 ## Full-pack evidence
 
@@ -94,6 +117,7 @@ On clean case `cuad-001` (Renewal Term), the default tool call produced 1 issue(
 - The full-pack run on the CUAD ledger reports CS-006 missing party. That is a true statement about the adapted ledger (party is not provided), not a false positive of a scored rule.
 - cases.json and .data/ are gitignored; no contract text is committed. CUAD is CC BY 4.0 and attribution is in README.md.
 - The tool's only argument collapses unselected rules into one skipped entry; evaluation filters issues by ruleId. This is a reporting detail, not a scoring shortcut.
+- Known gap (boundary probe): CS-001 does not report a row that omits the 条款原文 key entirely while another row carries the column; the engine only holds rows that carry the column to the presence check. A row with an explicit blank string is reported correctly and is the scored positive.
 
 ## Reproduce
 

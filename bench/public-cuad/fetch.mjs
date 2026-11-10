@@ -26,6 +26,11 @@ import { spawnSync } from 'node:child_process'
 import { dirname, join, resolve } from 'node:path'
 import { fileURLToPath } from 'node:url'
 
+process.on('uncaughtException', (error) => {
+  console.error(`fetch failed: ${error instanceof Error ? error.message : String(error)}`)
+  process.exit(1)
+})
+
 const here = dirname(fileURLToPath(import.meta.url))
 const dataDir = join(here, '.data')
 const zipPath = join(dataDir, 'data.zip')

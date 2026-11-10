@@ -274,14 +274,12 @@ function presence(ctx: CheckContext): void {
     ctx.skip(`材料没有「${field}」列，本条不适用`)
     return
   }
-  // Only rows the material actually gave this column are held to it.
-  const covered = ctx.input.rows.filter((row) => provided(ctx.input, row, field))
-  if (covered.length === 0) {
-    ctx.skip(`材料没有携带「${field}」列的行，本条不适用`)
-    return
-  }
-  for (const row of covered) {
-    if (filled(valueOf(ctx.input, row, field))) continue
+  // Once the column exists anywhere, every row is held to it. A row that
+  // omits the key entirely is a missing required value, not an inapplicable
+  // row; skipping it silently was the row-level coverage gap found by the
+  // public CUAD benchmark.
+  for (const row of ctx.input.rows) {
+    if (provided(ctx.input, row, field) && filled(valueOf(ctx.input, row, field))) continue
     ctx.add(
       locatorOf(row.row, field),
       `第 ${row.row} 行「${field}」为空`,

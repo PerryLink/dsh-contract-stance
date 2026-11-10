@@ -11,11 +11,7 @@ import * as plugin from '../../lib/index.mjs'
 
 const here = dirname(fileURLToPath(import.meta.url))
 const seed = JSON.parse(await readFile(join(here, 'seed.json'), 'utf8'))
-const matrix = {
-  'Governing Law': ['中', '低'],
-  'Uncapped Liability': ['高'],
-  'Non-Compete': ['高'],
-}
+const matrix = Object.fromEntries([...new Set(seed.rows.map((row) => row.条款主题))].map((topic) => [topic, [seed.rows.find((row) => row.条款主题 === topic).风险等级]]))
 const packText = await readFile(join(here, '../../rules/contract-stance.yaml'), 'utf8')
 const configured = packText.replace('        matrix: {}', `        matrix: ${JSON.stringify(matrix)}`)
 if (configured === packText) throw new Error('matrix placeholder not found in rule pack')
@@ -43,7 +39,7 @@ for (const rule of ['CS-008', 'CS-009']) {
   for (const row of rows) {
     const mutated = rule === 'CS-008'
       ? { ...row, 退让底线等级: '9' }
-      : { ...row, 风险等级: row.条款主题 === 'Governing Law' ? '高' : '低' }
+      : { ...row, 风险等级: ['高', '中', '低'].find((value) => !matrix[row.条款主题].includes(value)) ?? '低' }
     const positive = await run([mutated])
     if (positive.some((issue) => issue.ruleId === rule)) tp += 1
     else fn += 1

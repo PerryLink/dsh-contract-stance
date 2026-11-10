@@ -1,11 +1,11 @@
 {
   "dataset": "CUAD v1 clause text + self-annotated seed labels",
   "license": "CUAD clause text CC BY 4.0; seed annotations CC BY 4.0",
-  "rows": 15,
-  "topics": ["Governing Law", "Uncapped Liability", "Non-Compete"],
+  "rows": 85,
+  "topics": 17,
   "rules": {
-    "CS-008": { "tp": 15, "fp": 0, "fn": 0, "tn": 15, "precision": 1, "recall": 1 },
-    "CS-009": { "tp": 15, "fp": 0, "fn": 0, "tn": 15, "precision": 1, "recall": 1 }
+    "CS-008": { "tp": 85, "fp": 0, "fn": 0, "tn": 85, "precision": 1, "recall": 1 },
+    "CS-009": { "tp": 85, "fp": 0, "fn": 0, "tn": 85, "precision": 1, "recall": 1 }
   },
-  "caveat": "Seed labels are not lawyer-reviewed and cover only 3 categories."
+  "caveat": "Seed labels are not lawyer-reviewed and cover only 17 categories."
 }

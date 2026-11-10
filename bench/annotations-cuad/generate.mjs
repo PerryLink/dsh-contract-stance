@@ -22,6 +22,22 @@ const ANNOTATIONS = {
   'Governing Law': { riskLevel: '中', stance: 'review', stanceRank: '2', fallbackRank: '1', mustHave: '否', note: '适用法律影响争议解决。', fallback: '选择中性法域或仲裁地' },
   'Confidentiality': { riskLevel: '中', stance: 'review', stanceRank: '2', fallbackRank: '1', mustHave: '否', note: '保密期限与范围需核对。', fallback: '保密期 3 年，排除公开信息' },
   'Notice': { riskLevel: '低', stance: 'accept', stanceRank: '1', fallbackRank: '1', mustHave: '否', note: '通知条款通常为程序性。', fallback: '保留书面通知即可' },
+
+  'Cap On Liability': { riskLevel: '高', stance: 'prefer', stanceRank: '3', fallbackRank: '2', mustHave: '是', note: '责任上限过低可能使救济失去意义。', fallback: '上限不低于 12 个月费用' },
+  'Audit Rights': { riskLevel: '中', stance: 'review', stanceRank: '2', fallbackRank: '1', mustHave: '否', note: '审计范围与通知期需核对。', fallback: '合理通知、限于相关记录' },
+  'Exclusivity': { riskLevel: '高', stance: 'review', stanceRank: '3', fallbackRank: '1', mustHave: '是', note: '排他安排限制其他渠道。', fallback: '限定期限、地域或品类' },
+  'Insurance': { riskLevel: '中', stance: 'review', stanceRank: '2', fallbackRank: '1', mustHave: '否', note: '保险额度与覆盖范围需核对。', fallback: '按行业惯常额度投保' },
+  'Liquidated Damages': { riskLevel: '高', stance: 'prefer', stanceRank: '3', fallbackRank: '2', mustHave: '是', note: '违约金可能过高或过低。', fallback: '与实际损失大体相当并设上限' },
+  'Minimum Commitment': { riskLevel: '中', stance: 'review', stanceRank: '2', fallbackRank: '1', mustHave: '否', note: '最低采购承诺形成刚性义务。', fallback: '设置试运行期与调整机制' },
+  'Most Favored Nation': { riskLevel: '中', stance: 'review', stanceRank: '2', fallbackRank: '1', mustHave: '否', note: '最惠条款可能长期约束定价。', fallback: '限定同类客户与可比条件' },
+  'Non-Solicit Of Customers': { riskLevel: '中', stance: 'review', stanceRank: '2', fallbackRank: '1', mustHave: '否', note: '客户不招揽范围可能过宽。', fallback: '限定主动招揽与特定期限' },
+  'Non-Disparagement': { riskLevel: '低', stance: 'accept', stanceRank: '1', fallbackRank: '1', mustHave: '否', note: '通常为程序性条款。', fallback: '接受双向、合理例外' },
+  'Renewal Term': { riskLevel: '中', stance: 'review', stanceRank: '2', fallbackRank: '1', mustHave: '否', note: '自动续期可能锁定长期义务。', fallback: '改为双方书面续期' },
+  'Third Party Beneficiary': { riskLevel: '低', stance: 'accept', stanceRank: '1', fallbackRank: '1', mustHave: '否', note: '通常为程序性条款。', fallback: '明确无第三方受益人' },
+  'Warranty Duration': { riskLevel: '中', stance: 'review', stanceRank: '2', fallbackRank: '1', mustHave: '否', note: '质保期与救济需核对。', fallback: '不少于 12 个月' },
+  'Anti-Assignment': { riskLevel: '中', stance: 'review', stanceRank: '2', fallbackRank: '1', mustHave: '否', note: '转让限制影响重组与融资。', fallback: '关联方转让除外' },
+  'Source Code Escrow': { riskLevel: '中', stance: 'review', stanceRank: '2', fallbackRank: '1', mustHave: '否', note: '托管触发条件与范围需核对。', fallback: '限定破产/停止维护触发' },
+  'Notice Period To Terminate Renewal': { riskLevel: '低', stance: 'accept', stanceRank: '1', fallbackRank: '1', mustHave: '否', note: '通常为程序性条款。', fallback: '接受 30 天书面通知' },
   'Severability': { riskLevel: '低', stance: 'accept', stanceRank: '1', fallbackRank: '1', mustHave: '否', note: '可分割条款通常为程序性。', fallback: '接受标准可分割条款' },
 }
 

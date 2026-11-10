@@ -6,7 +6,7 @@ This is a small **self-annotated** seed set built on real CUAD clause text.
 - Source: <https://github.com/The-Atticus-Project/cuad>
 - Seed annotations (`stance`, `stanceRank`, `riskLevel`, `fallbackRank`,
   `fallback`, `riskNote`): **CC BY 4.0**, this repository's authors.
-- 15 clauses from 3 categories: Governing Law, Uncapped Liability, Non-Compete.
+- 85 clauses from 17 CUAD categories.
 - `generate.mjs` selects the clauses from `.data/CUADv1.json` (gitignored).
 - `evaluate.mjs` configures a local risk matrix and calls the real
   `contract_stance` tool.
@@ -15,7 +15,7 @@ This is a small **self-annotated** seed set built on real CUAD clause text.
 
 - **Not lawyer-reviewed.** These are seed labels written to exercise the rule
   engine, not a gold legal standard.
-- Only 3 categories; no claim of dataset-level representativeness.
+- Only 17 categories; no claim of dataset-level representativeness.
 - The risk matrix (`Governing Law: 中/低`, `Uncapped Liability: 高`,
   `Non-Compete: 高`) is our local seed policy, not law.
 - CUAD is English/US commercial contract data, not Chinese contracts.

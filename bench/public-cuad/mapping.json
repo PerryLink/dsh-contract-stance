@@ -1,6 +1,7 @@
 {
   "dataset": "CUAD v1 (The Atticus Project)",
   "source": "https://github.com/The-Atticus-Project/cuad",
+  "revision": "67faa0e6023b04fcaae6cc09497ab00e5d63a2a2",
   "license": "CC BY 4.0",
   "note": "Mapping is deliberately conservative: a field is mapped only when CUAD carries a semantically equivalent label. No stance, risk rating, fallback, must-have flag, owner, clause number or own-party designation is synthesized.",
   "notProvidedPolicy": {

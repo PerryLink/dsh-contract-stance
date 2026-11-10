@@ -35,8 +35,9 @@ const here = dirname(fileURLToPath(import.meta.url))
 const dataDir = join(here, '.data')
 const zipPath = join(dataDir, 'data.zip')
 const jsonPath = join(dataDir, 'CUADv1.json')
-const archiveUrl = 'https://raw.githubusercontent.com/The-Atticus-Project/cuad/main/data.zip'
-const sourceUrl = 'https://github.com/The-Atticus-Project/cuad'
+const revision = '67faa0e6023b04fcaae6cc09497ab00e5d63a2a2'
+const archiveUrl = `https://raw.githubusercontent.com/The-Atticus-Project/cuad/${revision}/data.zip`
+const sourceUrl = `https://github.com/The-Atticus-Project/cuad/tree/${revision}`
 const license = 'CC BY 4.0'
 
 const args = process.argv.slice(2)
@@ -166,6 +167,7 @@ function extract(zip) {
 }
 
 console.log(`source: ${sourceUrl}`)
+console.log(`revision: ${revision}`)
 console.log(`license: ${license}`)
 
 if (jsonOption !== undefined) {

@@ -1,9 +1,9 @@
 # Results — CUAD public benchmark
 
-Generated: 2026-11-10T11:55:21.332Z
+Generated: 2026-11-10T11:56:06.484Z
 
 Dataset: **CUAD v1 (The Atticus Project)** — 510 contracts, 20910 expert QA annotations, 41 categories.
-Source: <https://github.com/The-Atticus-Project/cuad> · License: **CC BY 4.0**.
+Source: <https://github.com/The-Atticus-Project/cuad> (CUAD commit `67faa0e6023b04fcaae6cc09497ab00e5d63a2a2`) · License: **CC BY 4.0**.
 Tool: `contract_stance` from `../../lib/index.mjs` (package 0.2.12, ruleset 2026.1).
 Cases: **180** clean CUAD-derived ledgers across **36** clause categories; each case is one expert-annotated clause excerpt.
 

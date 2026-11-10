@@ -337,6 +337,7 @@ const summary = {
   title: 'CUAD -> dsh-contract-stance ledger end-to-end benchmark',
   dataset: casesDocument.dataset,
   source: casesDocument.source,
+  revision: casesDocument.revision,
   license: casesDocument.license,
   generatedAt: new Date().toISOString(),
   tool: {
@@ -393,7 +394,6 @@ const summary = {
 writeFileSync(join(here, 'summary.json'), JSON.stringify(summary, null, 2) + '\n')
 
 const fmt = (value) => (value === null ? 'n/a' : value.toFixed(3))
-const percent = (value) => (value === null ? 'n/a' : `${(value * 100).toFixed(1)}%`)
 
 const lines = []
 lines.push('# Results — CUAD public benchmark')
@@ -401,7 +401,7 @@ lines.push('')
 lines.push(`Generated: ${summary.generatedAt}`)
 lines.push('')
 lines.push(`Dataset: **${summary.dataset}** — ${summary.data.contracts} contracts, ${summary.data.qas} expert QA annotations, ${summary.data.categories} categories.`)
-lines.push(`Source: <${summary.source}> · License: **${summary.license}**.`)
+lines.push(`Source: <${summary.source}> (CUAD commit \`${summary.revision}\`) · License: **${summary.license}**.`)
 lines.push(`Tool: \`${summary.tool.tool}\` from \`${summary.tool.entry}\` (package ${summary.tool.packageVersion}, ruleset ${summary.tool.rulesetVersion}).`)
 lines.push(`Cases: **${summary.cases.total}** clean CUAD-derived ledgers across **${summary.cases.rowCategories}** clause categories; each case is one expert-annotated clause excerpt.`)
 lines.push('')

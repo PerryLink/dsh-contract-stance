@@ -173,6 +173,7 @@ const headerNotProvided = Object.entries(mapping.headerFields)
 const payload = {
   dataset: mapping.dataset,
   source: mapping.source,
+  revision: mapping.revision,
   license: mapping.license,
   dataFile: basename(input),
   generatedAt: new Date().toISOString(),

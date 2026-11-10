@@ -155,16 +155,16 @@ rules:
     basis:
       document: 本机构合同管理办法（内部规则）
       number: 本次未取得公开条号
-      clause: 高风险条款的风险说明
-      excerpt: 本机构合同管理办法要求高风险条款必须写明风险说明；高风险取值由本机构配置，本插件不硬编码全部分档。
+      clause: 条款类型与允许风险等级的矩阵
+      excerpt: 本机构合同管理办法要求按条款类型限定允许的风险等级；矩阵由本机构配置，本插件不硬编码任何分档。
       kind: institutional-configuration
       source: https://www.gov.cn/zhengce/
     params:
       check:
-        kind: conditionalPresence
-        conditionField: riskLevel
-        conditionValues: ["高", "high", "H", "3", "重大"]
-        requiredFields: ["riskNote"]
+        kind: enumByField
+        field: riskLevel
+        byField: topic
+        matrix: {}
     note: >-
       本条只核对高风险行是否填写风险说明；它不判断风险是否真实存在。
       conditionValues 是保守默认值，机构可替换为自己的风险分档。

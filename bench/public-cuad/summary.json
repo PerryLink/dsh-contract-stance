@@ -5,7 +5,7 @@
   "source": "https://github.com/The-Atticus-Project/cuad",
   "revision": "67faa0e6023b04fcaae6cc09497ab00e5d63a2a2",
   "license": "CC BY 4.0",
-  "generatedAt": "2026-11-10T12:08:11.616Z",
+  "generatedAt": "2026-11-10T12:27:39.372Z",
   "tool": {
     "plugin": "dsh-contract-stance",
     "tool": "contract_stance",
@@ -236,7 +236,7 @@
         },
         {
           "reason": "本次调用通过 only 参数把执行范围限制为 CS-002, CS-003, CS-004，上列规则未执行",
-          "rule": "CS-001,CS-005,CS-006,CS-007"
+          "rule": "CS-001,CS-008,CS-009,CS-005,CS-006,CS-007"
         }
       ]
     },
@@ -258,7 +258,7 @@
         },
         {
           "reason": "本次调用通过 only 参数把执行范围限制为 CS-003，上列规则未执行",
-          "rule": "CS-001,CS-002,CS-004,CS-005,CS-006,CS-007"
+          "rule": "CS-001,CS-002,CS-004,CS-008,CS-009,CS-005,CS-006,CS-007"
         }
       ]
     },
@@ -281,7 +281,7 @@
       "skipped": [
         {
           "reason": "本次调用通过 only 参数把执行范围限制为 CS-001，上列规则未执行",
-          "rule": "CS-002,CS-003,CS-004,CS-005,CS-006,CS-007"
+          "rule": "CS-002,CS-003,CS-004,CS-008,CS-009,CS-005,CS-006,CS-007"
         }
       ]
     },
@@ -304,7 +304,7 @@
       "skipped": [
         {
           "reason": "本次调用通过 only 参数把执行范围限制为 CS-006，上列规则未执行",
-          "rule": "CS-001,CS-002,CS-003,CS-004,CS-005,CS-007"
+          "rule": "CS-001,CS-002,CS-003,CS-004,CS-008,CS-009,CS-005,CS-007"
         }
       ]
     }
@@ -319,7 +319,7 @@
       "skipped": [
         {
           "reason": "本次调用通过 only 参数把执行范围限制为 CS-001，上列规则未执行",
-          "rule": "CS-002,CS-003,CS-004,CS-005,CS-006,CS-007"
+          "rule": "CS-002,CS-003,CS-004,CS-008,CS-009,CS-005,CS-006,CS-007"
         }
       ],
       "assessment": "gap: row 2 is not covered because the presence engine only holds rows that carry the column to the check"
@@ -337,7 +337,7 @@
         },
         {
           "reason": "本次调用通过 only 参数把执行范围限制为 CS-001，上列规则未执行",
-          "rule": "CS-002,CS-003,CS-004,CS-005,CS-006,CS-007"
+          "rule": "CS-002,CS-003,CS-004,CS-008,CS-009,CS-005,CS-006,CS-007"
         }
       ],
       "assessment": "correctly skipped: the rule is not applicable, and the skip reason is reported"
@@ -369,6 +369,14 @@
         "rule": "CS-004"
       },
       {
+        "reason": "材料没有同时填写「fallbackRank」与「stanceRank」的行，本条不适用",
+        "rule": "CS-008"
+      },
+      {
+        "reason": "材料中没有满足「riskLevel」条件的行，本条不适用",
+        "rule": "CS-009"
+      },
+      {
         "reason": "材料没有「clauseNo」列，本条不适用",
         "rule": "CS-005"
       }
@@ -376,8 +384,8 @@
     "execution": {
       "executed": 3,
       "manual": 0,
-      "skipped": 4,
-      "total": 7,
+      "skipped": 6,
+      "total": 9,
       "unsupported": 0
     }
   },

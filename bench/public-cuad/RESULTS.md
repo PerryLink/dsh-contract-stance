@@ -1,6 +1,6 @@
 # Results — CUAD public benchmark
 
-Generated: 2026-11-10T12:08:11.616Z
+Generated: 2026-11-10T12:27:39.372Z
 
 Dataset: **CUAD v1 (The Atticus Project)** — 510 contracts, 20910 expert QA annotations, 41 categories.
 Source: <https://github.com/The-Atticus-Project/cuad> (CUAD commit `67faa0e6023b04fcaae6cc09497ab00e5d63a2a2`) · License: **CC BY 4.0**.
@@ -66,7 +66,7 @@ The second boundary probe is the correct behaviour: when the text column is abse
 
 ## Full-pack evidence
 
-On clean case `cuad-001` (Renewal Term), the default tool call produced 1 issue(s) and 4 skipped rule(s):
+On clean case `cuad-001` (Renewal Term), the default tool call produced 1 issue(s) and 6 skipped rule(s):
 
 ```json
 {
@@ -91,6 +91,14 @@ On clean case `cuad-001` (Renewal Term), the default tool call produced 1 issue(
       "rule": "CS-004"
     },
     {
+      "reason": "材料没有同时填写「fallbackRank」与「stanceRank」的行，本条不适用",
+      "rule": "CS-008"
+    },
+    {
+      "reason": "材料中没有满足「riskLevel」条件的行，本条不适用",
+      "rule": "CS-009"
+    },
+    {
       "reason": "材料没有「clauseNo」列，本条不适用",
       "rule": "CS-005"
     }
@@ -98,8 +106,8 @@ On clean case `cuad-001` (Renewal Term), the default tool call produced 1 issue(
   "execution": {
     "executed": 3,
     "manual": 0,
-    "skipped": 4,
-    "total": 7,
+    "skipped": 6,
+    "total": 9,
     "unsupported": 0
   }
 }

@@ -74,6 +74,11 @@ El plugin registra una única herramienta, `contract_stance`. El material es JSO
 
 ![Salida del ejemplo: contract_stance: 1 issue(s) — error 0, warn 1, info 0, skipped: 2](docs/assets/quickstart.png)
 
+![Salida del ejemplo: contract_stance: 1 issue(s) — error 0, warn 1, info 0, skipped: 2](docs/assets/dsh-contract-stance-demo.gif)
+
+*Repetición animada de una ejecución real registrada en este repositorio.*
+
+
 **Desinstalar**: `dsh plugin --profile <name> remove dsh-contract-stance` (o elimine la fila del patch del perfil).
 
 ## Capacidades clave

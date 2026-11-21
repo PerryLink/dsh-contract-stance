@@ -74,6 +74,11 @@ dsh plugin --profile <name> add dsh-contract-stance
 
 ![नमूना आउटपुट: contract_stance: 1 issue(s) — error 0, warn 1, info 0, skipped: 2](docs/assets/quickstart.png)
 
+![नमूना आउटपुट: contract_stance: 1 issue(s) — error 0, warn 1, info 0, skipped: 2](docs/assets/dsh-contract-stance-demo.gif)
+
+*इस रिपॉज़िटरी में दर्ज असली रन का एनिमेटेड रीप्ले।*
+
+
 **अनइंस्टॉल**: `dsh plugin --profile <name> remove dsh-contract-stance` (या प्रोफ़ाइल पैच से वह पंक्ति हटा दें)।
 
 ## मुख्य क्षमताएँ

@@ -79,6 +79,11 @@ dsh plugin --profile <name> add dsh-contract-stance
 
 ![快速试跑输出：contract_stance: 1 issue(s) — error 0, warn 1, info 0，skipped: 2](docs/assets/quickstart.png)
 
+![快速试跑输出：contract_stance: 1 issue(s) — error 0, warn 1, info 0，skipped: 2](docs/assets/dsh-contract-stance-demo.gif)
+
+*本仓库一次真实运行的动图回放。*
+
+
 **卸载**：`dsh plugin --profile <name> remove dsh-contract-stance`（或从 profile patch 删掉该行）。
 
 ## 核心能力

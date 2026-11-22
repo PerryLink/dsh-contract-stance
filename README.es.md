@@ -11,6 +11,8 @@
 
 Un verificador del lado del host para abogados internos y responsables de contratos: lee un registro de posturas (cabecera del contrato más una fila por cláusula) y enumera qué falta y dónde, guiado por un paquete de reglas cuyas citas son literales — nunca modifica el material ni dictamina sobre el cumplimiento.
 
+Última verificación: DeepSeek Harness `dsh-v0.2.3-alpha.1` (2026-11-22).
+
 [Instalación](#instalación-en-tres-pasos) · [Configuración](#configuración) · [FAQ](#faq) · [简体中文](README.md) · [English](README.en.md) · [Español](README.es.md) · [Português](README.pt.md) · [हिन्दी](README.hi.md)
 
 [![License](https://img.shields.io/badge/license-Apache--2.0-3366CC?style=flat-square&labelColor=2B3245)](LICENSE)
@@ -42,7 +44,7 @@ El plugin registra una única herramienta, `contract_stance`. El material es JSO
 
 ## Instalación en tres pasos
 
-1. **Instalar** (npm `0.2.11` está publicado):
+1. **Instalar** (npm `0.2.13` está publicado):
 
    ```sh
    dsh plugin --profile <name> add dsh-contract-stance
@@ -77,7 +79,6 @@ El plugin registra una única herramienta, `contract_stance`. El material es JSO
 ![Salida del ejemplo: contract_stance: 1 issue(s) — error 0, warn 1, info 0, skipped: 2](docs/assets/dsh-contract-stance-demo.gif)
 
 *Repetición animada de una ejecución real registrada en este repositorio.*
-
 
 **Desinstalar**: `dsh plugin --profile <name> remove dsh-contract-stance` (o elimine la fila del patch del perfil).
 

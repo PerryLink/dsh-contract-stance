@@ -11,6 +11,8 @@
 
 面向法务与合同管理员的主机端核对插件：读取一份「合同表头 + 每条款一行」的立场台账，按逐字引用的规则库列出「哪一行、哪一栏、差什么」，不改原件、不判定合规。
 
+最近一次核验：DeepSeek Harness `dsh-v0.2.3-alpha.1`（2026-11-22）。
+
 [安装](#三步上手) · [配置](#配置) · [FAQ](#faq) · [简体中文](README.md) · [English](README.en.md) · [Español](README.es.md) · [Português](README.pt.md) · [हिन्दी](README.hi.md)
 
 [![License](https://img.shields.io/badge/license-Apache--2.0-3366CC?style=flat-square&labelColor=2B3245)](LICENSE)
@@ -47,7 +49,7 @@ dsh plugin --profile <name> add dsh-contract-stance
 
 ## 三步上手
 
-1. **安装**（npm 已发布 `0.2.11`）：
+1. **安装**（npm 已发布 `0.2.13`）：
 
    ```sh
    dsh plugin --profile <name> add dsh-contract-stance
@@ -82,7 +84,6 @@ dsh plugin --profile <name> add dsh-contract-stance
 ![快速试跑输出：contract_stance: 1 issue(s) — error 0, warn 1, info 0，skipped: 2](docs/assets/dsh-contract-stance-demo.gif)
 
 *本仓库一次真实运行的动图回放。*
-
 
 **卸载**：`dsh plugin --profile <name> remove dsh-contract-stance`（或从 profile patch 删掉该行）。
 

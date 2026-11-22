@@ -11,6 +11,8 @@
 
 इन-हाउस कानूनी सलाहकारों और संविदा प्रबंधकों के लिए होस्ट-पक्षीय जाँचकर्ता: यह एक पक्ष-रुख रजिस्टर (संविदा हेडर और प्रत्येक खंड की एक पंक्ति) पढ़ता है और बताता है कि क्या और कहाँ छूटा है — नियम-पैक की उद्धृतियाँ शब्दशः हैं; यह सामग्री बदलता नहीं और अनुपालन पर निर्णय नहीं देता।
 
+अंतिम सत्यापन: DeepSeek Harness `dsh-v0.2.3-alpha.1` (2026-11-22).
+
 [इंस्टॉल](#तीन-चरणों-में-शुरुआत) · [कॉन्फ़िगरेशन](#कॉन्फ़िगरेशन) · [FAQ](#faq) · [简体中文](README.md) · [English](README.en.md) · [Español](README.es.md) · [Português](README.pt.md) · [हिन्दी](README.hi.md)
 
 [![License](https://img.shields.io/badge/license-Apache--2.0-3366CC?style=flat-square&labelColor=2B3245)](LICENSE)
@@ -42,7 +44,7 @@ dsh plugin --profile <name> add dsh-contract-stance
 
 ## तीन चरणों में शुरुआत
 
-1. **इंस्टॉल करें** (npm `0.2.11` प्रकाशित है):
+1. **इंस्टॉल करें** (npm `0.2.13` प्रकाशित है):
 
    ```sh
    dsh plugin --profile <name> add dsh-contract-stance
@@ -77,7 +79,6 @@ dsh plugin --profile <name> add dsh-contract-stance
 ![नमूना आउटपुट: contract_stance: 1 issue(s) — error 0, warn 1, info 0, skipped: 2](docs/assets/dsh-contract-stance-demo.gif)
 
 *इस रिपॉज़िटरी में दर्ज असली रन का एनिमेटेड रीप्ले।*
-
 
 **अनइंस्टॉल**: `dsh plugin --profile <name> remove dsh-contract-stance` (या प्रोफ़ाइल पैच से वह पंक्ति हटा दें)।
 

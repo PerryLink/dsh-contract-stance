@@ -11,6 +11,8 @@
 
 A host-side checker for in-house counsel and contract managers: it reads a stance register (contract header plus one row per clause) and lists what is missing and where, guided by a rule pack whose citations are quoted verbatim — it never edits the material and never pronounces on compliance.
 
+Last verified on DeepSeek Harness `dsh-v0.2.3-alpha.1` (2026-11-22).
+
 [Install](#three-step-setup) · [Configuration](#configuration) · [FAQ](#faq) · [简体中文](README.md) · [English](README.en.md) · [Español](README.es.md) · [Português](README.pt.md) · [हिन्दी](README.hi.md)
 
 [![License](https://img.shields.io/badge/license-Apache--2.0-3366CC?style=flat-square&labelColor=2B3245)](LICENSE)
@@ -47,7 +49,7 @@ The plugin registers a single tool, `contract_stance`. Material is JSON or YAML,
 
 ## Three-step setup
 
-1. **Install** (npm `0.2.11` is published):
+1. **Install** (npm `0.2.13` is published):
 
    ```sh
    dsh plugin --profile <name> add dsh-contract-stance
@@ -82,7 +84,6 @@ The plugin registers a single tool, `contract_stance`. Material is JSON or YAML,
 ![Quickstart output: contract_stance: 1 issue(s) — error 0, warn 1, info 0, skipped: 2](docs/assets/dsh-contract-stance-demo.gif)
 
 *Animated replay of a real run recorded in this repository.*
-
 
 **Uninstall**: `dsh plugin --profile <name> remove dsh-contract-stance` (or remove the row from the profile patch).
 

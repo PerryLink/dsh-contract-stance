@@ -7,6 +7,8 @@
 
 # dsh-contract-stance
 
+Current version `0.2.14`.
+
 **Turn the gaps and contradictions in a contract clause-stance register into a line-by-line fix list before negotiation.**
 
 A host-side checker for in-house counsel and contract managers: it reads a stance register (contract header plus one row per clause) and lists what is missing and where, guided by a rule pack whose citations are quoted verbatim — it never edits the material and never pronounces on compliance.
